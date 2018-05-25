@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 
 public class DoubleSix extends JFrame implements ActionListener {
 
+	private DoubleSixPanel DoubleSixPanel;
 	private JPanel contentPane;
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
@@ -23,24 +24,16 @@ public class DoubleSix extends JFrame implements ActionListener {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					DoubleSix frame = new DoubleSix();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				} //catch the exception situation
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
 	 */
 	public DoubleSix() {
 		super();
+		
+		DoubleSixPanel = new DoubleSixPanel();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 655, 534);
 		contentPane = new JPanel();
@@ -49,19 +42,19 @@ public class DoubleSix extends JFrame implements ActionListener {
 		contentPane.setLayout(null);
 		
 		
-		JButton btnNewButton = new JButton("\u904A\u6232\u958B\u59CB");
+		btnNewButton = new JButton("\u904A\u6232\u958B\u59CB");
 		btnNewButton.setBounds(176, 369, 291, 31);
 		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.addActionListener(this);
 		
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("\u898F\u5247");
+		btnNewButton_1 = new JButton("\u898F\u5247");
 		btnNewButton_1.setBounds(176, 312, 291, 31);
 		btnNewButton_1.addActionListener(this);
 		contentPane.add(btnNewButton_1);
 		
-		JLabel testLB = new JLabel("");
+		testLB = new JLabel("");
 		testLB.setIcon(new ImageIcon("C:/Users/Administrator/Desktop/JavaProgram/temp_final_project/Double_six/src/123.png"));
 		testLB.setBounds(63, 41, 225, 181);
 		contentPane.add(testLB);
