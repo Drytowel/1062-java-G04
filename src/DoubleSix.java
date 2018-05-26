@@ -36,7 +36,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 		DoubleSixPanel = new DoubleSixPanel();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 655, 534);
+		setBounds(0, 0, 1200, 700);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -58,7 +58,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 		testLB = new JLabel("");
 		testLB.setIcon(new ImageIcon(getClass().getResource( "wood.png" ) ));
 		//Icon bug = new ImageIcon( getClass().getResource( "bug1.png" ) );
-		testLB.setBounds(0, 0, 3000, 500);
+		testLB.setBounds(0, 0, 1200, 700);
 		contentPane.add(testLB);
 		
 		
@@ -70,8 +70,28 @@ public class DoubleSix extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==btnNewButton) {
 			System.out.println("this is btnNewButton");
+			
+			DoubleSixPanel = new DoubleSixPanel();
+			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			setBounds(0, 0, 1200, 700);
+			contentPane = new JPanel();
+			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+			setContentPane(contentPane);
+			contentPane.setLayout(null);
+			
+			DoubleSixPanel.gameStart();
 		}else if(e.getSource()==btnNewButton_1) {
 			System.out.println("this is btnNewButton_1");
+			
+			DoubleSixPanel = new DoubleSixPanel();
+			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			setBounds(0, 0, 1200, 700);
+			contentPane = new JPanel();
+			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+			setContentPane(contentPane);
+			contentPane.setLayout(null);
+			
+			DoubleSixPanel.gameRule();
 		}
 		
 	}
