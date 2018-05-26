@@ -22,17 +22,7 @@ public class DoubleSixPanel extends JPanel implements MouseListener, MouseMotion
 		System.out.println("clicked");
 		
 	}
-	
-	public void gameStart() {
-		
-		
-	}
-    
-    public void gameRule() {
-		
-		
-	}
-	
+
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		// TODO Auto-generated method stub
