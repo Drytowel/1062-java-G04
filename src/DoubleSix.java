@@ -20,6 +20,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private JPanel contentPane;
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
+	private JButton back;
 	private JLabel testLB;
 
 	/**
@@ -45,7 +46,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 		
 		btnNewButton = new JButton("\u904A\u6232\u958B\u59CB");
 		btnNewButton.setBounds(350, 369, 500, 31);
-		btnNewButton.setBackground(Color.WHITE);
+//		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.addActionListener(this);
 		
 		contentPane.add(btnNewButton);
@@ -53,7 +54,15 @@ public class DoubleSix extends JFrame implements ActionListener {
 		btnNewButton_1 = new JButton("\u898F\u5247");
 		btnNewButton_1.setBounds(350, 312, 500, 31);
 		btnNewButton_1.addActionListener(this);
+		
 		contentPane.add(btnNewButton_1);
+		
+		back = new JButton("Back");
+		back.setBounds(350, 500, 500, 31);
+		back.addActionListener(this);
+		back.setVisible(false);
+		
+		contentPane.add(back);
 		
 		testLB = new JLabel("");
 		testLB.setIcon(new ImageIcon(getClass().getResource( "wood.png" ) ));
@@ -82,16 +91,17 @@ public class DoubleSix extends JFrame implements ActionListener {
 			DoubleSixPanel.gameStart();
 		}else if(e.getSource()==btnNewButton_1) {
 			System.out.println("this is btnNewButton_1");
-			
-			DoubleSixPanel = new DoubleSixPanel();
-			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			setBounds(0, 0, 1200, 700);
-			contentPane = new JPanel();
-			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-			setContentPane(contentPane);
-			contentPane.setLayout(null);
+		    
+			btnNewButton.setVisible(false);
+			btnNewButton_1.setVisible(false);
+			back.setVisible(true);
 			
 			DoubleSixPanel.gameRule();
+		}else if(e.getSource()==back) {
+			btnNewButton.setVisible(true);
+			btnNewButton_1.setVisible(true);
+			back.setVisible(false);
+			return;
 		}
 		
 	}
