@@ -56,9 +56,9 @@ public class DoubleSix extends JFrame implements ActionListener {
 		contentPane.add(btnNewButton_1);
 		
 		testLB = new JLabel("");
-		testLB.setIcon(new ImageIcon(getClass().getResource( "123.png" ) ));
+		testLB.setIcon(new ImageIcon(getClass().getResource( "wood.png" ) ));
 		//Icon bug = new ImageIcon( getClass().getResource( "bug1.png" ) );
-		testLB.setBounds(63, 41, 225, 181);
+		testLB.setBounds(0, 0, 3000, 500);
 		contentPane.add(testLB);
 		
 		
