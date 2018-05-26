@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 
 public class DoubleSixPanel extends JPanel implements MouseListener, MouseMotionListener {
 
-	private int btnNewButton = 0;
+	private int btnNewButton   = 0;
 	private int btnNewButton_1 = 1;
 	public DoubleSixPanel(){
 		super();
