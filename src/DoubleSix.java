@@ -50,7 +50,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 		
 		btnNewButton = new JButton("\u904A\u6232\u958B\u59CB");
 		btnNewButton.setBounds(350, 369, 500, 31);
-		btnNewButton.setBackground(Color.WHITE);
+		//btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.addActionListener(this);
 		
 		contentPane.add(btnNewButton);
@@ -58,6 +58,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 		btnNewButton_1 = new JButton("\u898F\u5247");
 		btnNewButton_1.setBounds(350, 312, 500, 31);
 		btnNewButton_1.addActionListener(this);
+		
 		contentPane.add(btnNewButton_1);
 		
 		testLB = new JLabel("");
