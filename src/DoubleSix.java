@@ -22,9 +22,18 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private JPanel contentPanel;
 	private JButton gameStart;
 	private JButton rule; 
-	private JButton back;
 	private JTextArea ruleContent;
+	
+	private JButton back;
+	
 	private JLabel testLB;
+	
+//	private JPanel playPanel;
+//	
+//	private JPanel bottomPanel; //遊戲下方的按鈕
+//	private JButton stop;
+//	private JButton restart;
+//	private JButton backToMenu;
 
 	/**
 	 * Launch the application.
@@ -74,7 +83,28 @@ public class DoubleSix extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==gameStart) {
-			System.out.println("this is gameStart");
+			System.out.println("gameStart");
+//			setSize(1300, 524);
+//			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//			playPanel = new JPanel();
+//			add(playPanel, BorderLayout.CENTER);
+//			
+//			
+//			JButton restart = new JButton();
+//			restart.addActionListener(this);
+//			bottomPanel.add(restart);
+//			
+//			JButton stop = new JButton();
+//			stop.addActionListener(this);
+//			bottomPanel.add(stop);
+//			
+//			JButton backToMenu = new JButton();
+//			backToMenu.addActionListener(this);
+//			bottomPanel.add(backToMenu);
+//			add(bottomPanel, BorderLayout.SOUTH);
+//			
+//			setVisible(true);
+			
 		}else if(e.getSource()==rule) {
 			System.out.println("rule");
 			setSize(1300, 524);
@@ -92,18 +122,20 @@ public class DoubleSix extends JFrame implements ActionListener {
 					"\r\n" + 
 					"玩家人數  : 2\r\n" + 
 					"\r\n" + 
-					"勝利條件  : _最先_ 到達終點的人勝利。  \r\n" + 
+					"勝利條件  : '最先' 到達終點的人勝利。  \r\n" + 
 					"\r\n" + 
-					"總格數    : 50格  \r\n" + 
+					"總格數 : 50格  \r\n" + 
 					"\r\n" + 
 					"小規則種類 :  \r\n" + 
 					"\r\n" + 
-					"   猜題        : 猜燈謎,知識王,微積分,常識題  \r\n" + 
+					"   猜題 : 猜燈謎,知識王,微積分,常識題  \r\n" + 
 					"  \r\n" + 
-					"   前進後退  : 踩到就前進或後退該格規定之格數  \r\n" + 
+					"   前進後退 : 踩到就前進或後退該格規定之格數  \r\n" + 
 					"  \r\n" + 
-					"   特殊格     : 踩到就回家、踩到就進監獄  ");			
+					"   特殊格 : 踩到就回家、踩到就進監獄  ");			
 			ruleContent.setFont (new Font ("SansSerif", Font.PLAIN, 18));  //字體大小
+			ruleContent.setBackground (Color.white);//背景顏色
+			ruleContent.setForeground (Color.BLACK);//字体颜色
 			contentPanel.add(ruleContent);
 			back = new JButton("返回");
 			back.setBounds(0, 0, 500, 31);
@@ -111,7 +143,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 			contentPanel.add(back);
 			setVisible(true);
 		}else if(e.getSource()==back) {                              
-			System.out.println("this is btnNewButton_3");
+			System.out.println("back");
 			
 			doubleSixPanel = new DoubleSixPanel();                 
 			DoubleSix dou = new DoubleSix();
