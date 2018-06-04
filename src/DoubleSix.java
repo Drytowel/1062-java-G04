@@ -28,17 +28,14 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private JPanel startPanel;               //開始的Panel
 	private JButton gameStart;	
 	private JButton rule; 
-	private JLabel testLB;
+	private JLabel backgroundLB;
 	
 	private JPanel rulePanel;                //rule的Panel
-	private JTextArea ruleContent;           //遊戲的Panel	
 	private JButton back;	
 	
 	private JPanel playPanel;                
-	private JLabel testL;
-	
 	private JButton about;
-	
+	private JButton backToMenu;
 
 	/**
 	 * Launch the application.
@@ -69,10 +66,10 @@ public class DoubleSix extends JFrame implements ActionListener {
 		rule.addActionListener(this);		
 		startPanel.add(rule);
 		
-		testLB = new JLabel("");
-		testLB.setIcon(new ImageIcon(getClass().getResource( "wood.png" ) ));		
-		testLB.setBounds(0, 0, 3000, 500);
-		startPanel.add(testLB);
+		backgroundLB = new JLabel("");
+		backgroundLB.setIcon(new ImageIcon(getClass().getResource( "wood.png" ) ));		
+		backgroundLB.setBounds(0, 0, 3000, 500);
+		startPanel.add(backgroundLB);
 		
 //		GridBagLayout gb = new GridBagLayout();
 		
@@ -101,6 +98,9 @@ public class DoubleSix extends JFrame implements ActionListener {
 			
 			about = new JButton("關於"); //設置關於按鈕
 			about.addActionListener(this);
+			
+			backToMenu = new JButton("回到主畫面"); //設置回到主畫面按鈕
+			backToMenu.addActionListener(this);
 
 			
 			JPanel toolBar = new JPanel();   //設置工具列
@@ -109,6 +109,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 			toolBar.setPreferredSize(new Dimension(1000, 48));
 			
 			toolBar.add(about); //將關於按鈕放入
+			toolBar.add(backToMenu); //回到主畫面按鈕
 			
 			JPanel actionPanel = new JPanel();  //設置操作區域
 			actionPanel.setBackground(Color.yellow);
@@ -243,10 +244,10 @@ public class DoubleSix extends JFrame implements ActionListener {
 			rule.addActionListener(this);
 			startPanel.add(rule);
 			
-			testLB = new JLabel("");
-			testLB.setIcon(new ImageIcon(getClass().getResource( "wood.png" ) ));			
-			testLB.setBounds(0, 0, 3000, 500);
-			startPanel.add(testLB);
+			backgroundLB = new JLabel("");
+			backgroundLB.setIcon(new ImageIcon(getClass().getResource( "wood.png" ) ));			
+			backgroundLB.setBounds(0, 0, 3000, 500);
+			startPanel.add(backgroundLB);
 
 			
 		}
@@ -255,6 +256,29 @@ public class DoubleSix extends JFrame implements ActionListener {
 			JOptionPane.showMessageDialog(this, "製作: G04  鄭楷融、鄧煒庠、何冠勳、趙崇廣",
 					"關於", JOptionPane.INFORMATION_MESSAGE);
 			return;
+		}
+		else if(e.getSource()==backToMenu) {
+			System.out.print("backToMunu");
+			setBounds(100, 100, 1300, 525);				
+			startPanel = new JPanel();
+			setContentPane(startPanel);		
+			startPanel.setLayout(null);			
+			gameStart = new JButton("\u904A\u6232\u958B\u59CB");
+			gameStart.setBounds(350, 369, 500, 31);
+			gameStart.setBackground(Color.WHITE);
+			gameStart.addActionListener(this);
+			
+			startPanel.add(gameStart);
+			
+			rule = new JButton("\u898F\u5247");
+			rule.setBounds(350, 312, 500, 31);
+			rule.addActionListener(this);
+			startPanel.add(rule);
+			
+			backgroundLB = new JLabel("");
+			backgroundLB.setIcon(new ImageIcon(getClass().getResource( "wood.png" ) ));			
+			backgroundLB.setBounds(0, 0, 3000, 500);
+			startPanel.add(backgroundLB);
 		}
 		
 		
