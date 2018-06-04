@@ -6,6 +6,8 @@ import java.awt.GridBagLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -13,7 +15,11 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -30,6 +36,8 @@ public class DoubleSix extends JFrame implements ActionListener {
 	
 	private JPanel playPanel;                
 	private JLabel testL;
+	
+	private JButton about;
 	
 
 	/**
@@ -66,6 +74,8 @@ public class DoubleSix extends JFrame implements ActionListener {
 		testLB.setBounds(0, 0, 3000, 500);
 		startPanel.add(testLB);
 		
+//		GridBagLayout gb = new GridBagLayout();
+		
 		
 	}
 
@@ -75,84 +85,109 @@ public class DoubleSix extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==gameStart) {
 			System.out.println("gameStart");
-						
+			
+			Border border = BorderFactory.createBevelBorder(BevelBorder.LOWERED, //設置邊框
+			new Color(45, 92, 162), 
+			new Color(43, 66, 97), 
+			new Color(45, 92, 162), 
+			new Color(84, 123, 200));
 			
 			setBounds(100, 100, 1300, 524);
 			playPanel = new JPanel();
-			playPanel.setLayout(new GridBagLayout());
-			setContentPane(playPanel);
+			playPanel.setBounds(100, 100, 1300, 524);
+			playPanel.setLayout(new BorderLayout());
+			setContentPane(playPanel);		//設置為JFrame框架的內容面板
 			
 			
-			playPanel.setSize(600, 160);
-	        
+			about = new JButton("關於"); //設置關於按鈕
+			about.addActionListener(this);
+
 			
+			JPanel toolBar = new JPanel();   //設置工具列
+			toolBar.setBackground(Color.white);
+			toolBar.setBorder(border); //設置邊框
+			toolBar.setPreferredSize(new Dimension(1000, 48));
 			
-			JButton n1 = new JButton("1");
-	        GridBagConstraints p1 = new GridBagConstraints();
-	        p1.gridx = 0;
-	        p1.gridy = 0;
-	        p1.gridwidth = 1;
-	        p1.gridheight = 1;
-	        p1.weightx = 0;
-	        p1.weighty = 0;
-	        p1.fill = GridBagConstraints.BOTH;
-	        p1.anchor = GridBagConstraints.NORTHEAST;
-	        playPanel.add(n1, p1);
-	        
-	        
-	        
-	        JButton n2 = new JButton("2");
-	        GridBagConstraints p2 = new GridBagConstraints();
-	        p2.gridx = 1;
-	        p2.gridy = 0;
-	        p2.gridwidth = 1;
-	        p2.gridheight = 1;
-	        p2.weightx = 0;
-	        p2.weighty = 0;
-	        p2.fill = GridBagConstraints.NONE;
-	        p2.anchor = GridBagConstraints.NORTHEAST;	        
-	        playPanel.add(n2, p2);
-	        
-	        JButton n3 = new JButton("3");	        
-	        GridBagConstraints p3 = new GridBagConstraints();
-	        p3.gridx = 2;
-	        p3.gridy = 0;
-	        p3.gridwidth = 1;
-	        p3.gridheight = 1;
-	        p3.weightx = 0;
-	        p3.weighty = 0;
-	        p3.fill = GridBagConstraints.NONE;
-	        p3.anchor = GridBagConstraints.NORTHEAST;
-	        playPanel.add(n3, p3);
-	  
-	        JButton n4 = new JButton("4");	        
-	        GridBagConstraints p4 = new GridBagConstraints();
-	        p3.gridx = 3;
-	        p3.gridy = 0;
-	        p3.gridwidth = 1;
-	        p3.gridheight = 1;
-	        p3.weightx = 0;
-	        p3.weighty = 0;
-	        p3.fill = GridBagConstraints.NONE;
-	        p3.anchor = GridBagConstraints.NORTHEAST;
-	        playPanel.add(n4, p4);
+			toolBar.add(about); //將關於按鈕放入
 			
-	        
-	        JButton n5 = new JButton("5");	        
-	        GridBagConstraints p5 = new GridBagConstraints();
-	        p3.gridx = 43;
-	        p3.gridy = 0;
-	        p3.gridwidth = 1;
-	        p3.gridheight = 1;
-	        p3.weightx = 0;
-	        p3.weighty = 0;
-	        p3.fill = GridBagConstraints.NONE;
-	        p3.anchor = GridBagConstraints.NORTHEAST;
-	        playPanel.add(n5, p5);
-//	        testL = new JLabel("");
-//			testL.setIcon(new ImageIcon(getClass().getResource( "wood.png" ) ));		
-//			testL.setBounds(0, 0, 1300, 525);
-//			playPanel.add(testL);
+			JPanel actionPanel = new JPanel();  //設置操作區域
+			actionPanel.setBackground(Color.yellow);
+			actionPanel.setBorder(border);
+			actionPanel.setPreferredSize(new Dimension(200, 380));
+			
+			JPanel contentPanel = new JPanel();  //設置遊玩區域
+			contentPanel.setBackground(Color.blue);
+			contentPanel.setBorder(border);
+			contentPanel.setPreferredSize(new Dimension(620, 500));
+		
+			playPanel.add(toolBar, BorderLayout.NORTH);
+			playPanel.add(actionPanel, BorderLayout.EAST);
+			playPanel.add(contentPanel, BorderLayout.CENTER);
+			
+
+			
+//			JButton n1 = new JButton("1");
+//	        GridBagConstraints p1 = new GridBagConstraints();
+//	        p1.gridx = 0;
+//	        p1.gridy = 0;
+//	        p1.gridwidth = 1;
+//	        p1.gridheight = 1;
+//	        p1.weightx = 0;
+//	        p1.weighty = 0;
+//	        p1.fill = GridBagConstraints.BOTH;
+//	        p1.anchor = GridBagConstraints.NORTHEAST;
+//	        playPanel.add(n1, p1);
+//	        
+//	        
+//	        
+//	        JButton n2 = new JButton("2");
+//	        GridBagConstraints p2 = new GridBagConstraints();
+//	        p2.gridx = 1;
+//	        p2.gridy = 0;
+//	        p2.gridwidth = 1;
+//	        p2.gridheight = 1;
+//	        p2.weightx = 0;
+//	        p2.weighty = 0;
+//	        p2.fill = GridBagConstraints.NONE;
+//	        p2.anchor = GridBagConstraints.NORTHEAST;	        
+//	        playPanel.add(n2, p2);
+//	        
+//	        JButton n3 = new JButton("3");	        
+//	        GridBagConstraints p3 = new GridBagConstraints();
+//	        p3.gridx = 2;
+//	        p3.gridy = 0;
+//	        p3.gridwidth = 1;
+//	        p3.gridheight = 1;
+//	        p3.weightx = 0;
+//	        p3.weighty = 0;
+//	        p3.fill = GridBagConstraints.NONE;
+//	        p3.anchor = GridBagConstraints.NORTHEAST;
+//	        playPanel.add(n3, p3);
+//	  
+//	        JButton n4 = new JButton("4");	        
+//	        GridBagConstraints p4 = new GridBagConstraints();
+//	        p4.gridx = 3;
+//	        p4.gridy = 0;
+//	        p4.gridwidth = 1;
+//	        p4.gridheight = 1;
+//	        p4.weightx = 0;
+//	        p4.weighty = 0;
+//	        p4.fill = GridBagConstraints.NONE;
+//	        p4.anchor = GridBagConstraints.NORTHEAST;
+//	        playPanel.add(n4, p4);
+//			
+//	        
+//	        JButton n5 = new JButton("5");	        
+//	        GridBagConstraints p5 = new GridBagConstraints();
+//	        p5.gridx = 43;
+//	        p5.gridy = 0;
+//	        p5.gridwidth = 1;
+//	        p5.gridheight = 1;
+//	        p5.weightx = 0;
+//	        p5.weighty = 0;
+//	        p5.fill = GridBagConstraints.NONE;
+//	        p5.anchor = GridBagConstraints.NORTHEAST;
+//	        playPanel.add(n5, p5);
 	        
 	        
 	        playPanel.setVisible(true);
@@ -212,16 +247,16 @@ public class DoubleSix extends JFrame implements ActionListener {
 			testLB.setIcon(new ImageIcon(getClass().getResource( "wood.png" ) ));			
 			testLB.setBounds(0, 0, 3000, 500);
 			startPanel.add(testLB);
-			
-		}else if(e.getSource()==gameStart) {
-			System.out.println("gameStart");
-			
-			
-			
-			
-			
+
 			
 		}
+		else if(e.getSource()==about) {
+			System.out.print("about");
+			JOptionPane.showMessageDialog(this, "製作: G04  鄭楷融、鄧煒庠、何冠勳、趙崇廣",
+					"關於", JOptionPane.INFORMATION_MESSAGE);
+			return;
+		}
+		
 		
 	}
 }
