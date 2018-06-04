@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -36,7 +37,9 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private JPanel playPanel;                
 	private JButton about;
 	private JButton backToMenu;
-
+	
+	private final static int ROW = 10; //橫向10個格子
+	private final static int COLUMN = 5; //縱向5個格子
 	/**
 	 * Launch the application.
 	 */
@@ -83,6 +86,8 @@ public class DoubleSix extends JFrame implements ActionListener {
 		if(e.getSource()==gameStart) {
 			System.out.println("gameStart");
 			
+			GridLayout gridLayout = new GridLayout(ROW, COLUMN); //設置格子狀Panel
+			
 			Border border = BorderFactory.createBevelBorder(BevelBorder.LOWERED, //設置邊框
 			new Color(45, 92, 162), 
 			new Color(43, 66, 97), 
@@ -114,12 +119,17 @@ public class DoubleSix extends JFrame implements ActionListener {
 			JPanel actionPanel = new JPanel();  //設置操作區域
 			actionPanel.setBackground(Color.yellow);
 			actionPanel.setBorder(border);
-			actionPanel.setPreferredSize(new Dimension(200, 380));
+			actionPanel.setPreferredSize(new Dimension(520, 380));
 			
 			JPanel contentPanel = new JPanel();  //設置遊玩區域
 			contentPanel.setBackground(Color.blue);
 			contentPanel.setBorder(border);
-			contentPanel.setPreferredSize(new Dimension(620, 500));
+			contentPanel.setPreferredSize(new Dimension(300, 500));
+			contentPanel.setLayout(gridLayout); //將遊戲區域設成gridLayout
+			for(int i=0; i<ROW*COLUMN; i++) {
+				JButton button = new JButton(""+i);
+				contentPanel.add(button);
+			}
 		
 			playPanel.add(toolBar, BorderLayout.NORTH);
 			playPanel.add(actionPanel, BorderLayout.EAST);
