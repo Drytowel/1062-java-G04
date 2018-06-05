@@ -27,12 +27,12 @@ import javax.swing.ImageIcon;
 
 public class DoubleSix extends JFrame implements ActionListener {
 
-	private JPanel startPanel;               //開始的Panel
+	private JPanel startPanel;               //����anel
 	private JButton gameStart;	
 	private JButton rule; 
 	private JLabel backgroundLB;
 	
-	private JPanel rulePanel;                //rule的Panel
+	private JPanel rulePanel;                //rule��anel
 	private JButton back;	
 	
 	private JPanel playPanel;                
@@ -40,10 +40,11 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private JButton backToMenu;
 	
 	
-	private final static int ROW = 10; //橫向10個格子
-	private final static int COLUMN = 5; //縱向5個格子
+	private final static int ROW = 10; //璈怠��10�摮�
+	private final static int COLUMN = 5; //蝮勗��5�摮�
 	
 	private JButton btn[];
+	private Question question;
 	/**
 	 * Launch the application.
 	 */
@@ -90,9 +91,9 @@ public class DoubleSix extends JFrame implements ActionListener {
 		if(e.getSource()==gameStart) {
 			System.out.println("gameStart");
 			
-			GridLayout gridLayout = new GridLayout(ROW, COLUMN); //設置格子狀Panel
+			GridLayout gridLayout = new GridLayout(ROW, COLUMN); //閮剔蔭�摮�Panel
 			
-			Border border = BorderFactory.createBevelBorder(BevelBorder.LOWERED, //設置邊框
+			Border border = BorderFactory.createBevelBorder(BevelBorder.LOWERED, //閮剔蔭����
 			new Color(45, 92, 162), 
 			new Color(43, 66, 97), 
 			new Color(45, 92, 162), 
@@ -102,38 +103,38 @@ public class DoubleSix extends JFrame implements ActionListener {
 			playPanel = new JPanel();
 			playPanel.setBounds(100, 100, 1300, 524);
 			playPanel.setLayout(new BorderLayout());
-			setContentPane(playPanel);		//設置為JFrame框架的內容面板
+			setContentPane(playPanel);		//閮剔蔭�JFrame獢��摰寥�
 			
 			
-			about = new JButton("關於"); //設置關於按鈕
+			about = new JButton("��"); //閮剔蔭������
 			about.addActionListener(this);
 			
-			backToMenu = new JButton("回到主畫面"); //設置回到主畫面按鈕
+			backToMenu = new JButton("��銝餌�"); //閮剔蔭��銝餌�����
 			backToMenu.addActionListener(this);
 
 			
-			JPanel toolBar = new JPanel();   //設置工具列
+			JPanel toolBar = new JPanel();   //閮剔蔭撌亙���
 			toolBar.setBackground(Color.white);
-			toolBar.setBorder(border); //設置邊框
+			toolBar.setBorder(border); //閮剔蔭����
 			toolBar.setPreferredSize(new Dimension(1000, 48));
 			
-			toolBar.add(about); //將關於按鈕放入
-			toolBar.add(backToMenu); //回到主畫面按鈕
+			toolBar.add(about); //撠�����
+			toolBar.add(backToMenu); //��銝餌�����
 			
-			JPanel actionPanel = new JPanel();  //設置操作區域
+			JPanel actionPanel = new JPanel();  //閮剔蔭�������
 			actionPanel.setBackground(Color.yellow);
 			actionPanel.setBorder(border);
 			actionPanel.setPreferredSize(new Dimension(520, 380));
 			
-			JLabel player = new JLabel("分數",JLabel.CENTER);
+			JLabel player = new JLabel("��",JLabel.CENTER);
 			player.setFont (new Font ("SansSerif", Font.PLAIN, 40));
 			actionPanel.add(player);
 			
-			JPanel contentPanel = new JPanel();  //設置遊玩區域
+			JPanel contentPanel = new JPanel();  //閮剔蔭�������
 			contentPanel.setBackground(Color.blue);
 			contentPanel.setBorder(border);
 			contentPanel.setPreferredSize(new Dimension(300, 500));
-			contentPanel.setLayout(gridLayout); //將遊戲區域設成gridLayout
+			contentPanel.setLayout(gridLayout); //撠�����身��ridLayout
 			
 			btn = new JButton[51];
 			for(int i=1; i<=ROW*COLUMN; i++) {								
@@ -224,28 +225,28 @@ public class DoubleSix extends JFrame implements ActionListener {
 			setContentPane(rulePanel);
 //          contentPane_2.setBorder(new EmptyBorder(5, 5, 5, 5));			
 			rulePanel.setLayout(new GridBagLayout());				
-			JTextArea ruleContent = new JTextArea("遊戲名稱:雙六\r\n" + 
+			JTextArea ruleContent = new JTextArea("����迂:��\r\n" + 
 					" \r\n" + 
-					"遊戲方式  : 每個玩家丟一個骰子(以 _自選顏色_ 當玩家代表)，毎個格子都有特殊的小規則，可能是前進幾格或後退幾格，或者是要完成某個題目。  \r\n" + 
+					"���撘�  : 瘥�摰嗡���狐摮�(隞� _��憿_ ��摰嗡誨銵�)嚗��摮��畾����������脣嗾������撟暹嚗��閬�������  \r\n" + 
 					"\r\n" + 
-					"玩家人數  : 2\r\n" + 
+					"�摰嗡犖�  : 2\r\n" + 
 					"\r\n" + 
-					"勝利條件  : '最先' 到達終點的人勝利。  \r\n" + 
+					"��璇辣  : '�����' ������犖����  \r\n" + 
 					"\r\n" + 
-					"總格數 : 50格  \r\n" + 
+					"蝮賣� : 50�  \r\n" + 
 					"\r\n" + 
-					"小規則種類 :  \r\n" + 
+					"撠��車憿� :  \r\n" + 
 					"\r\n" + 
-					"   猜題 : 猜燈謎,知識王,微積分,常識題  \r\n" + 
+					"   ���� : �����,�霅��,敺桃���,撣貉���  \r\n" + 
 					"  \r\n" + 
-					"   前進後退 : 踩到就前進或後退該格規定之格數  \r\n" + 
+					"   ���脣��� : 頦拙撠勗��脫����閰脫閬���  \r\n" + 
 					"  \r\n" + 
-					"   特殊格 : 踩到就回家、踩到就進監獄  ");			
-			ruleContent.setFont (new Font ("SansSerif", Font.PLAIN, 18));  //字體大小
-			ruleContent.setBackground (Color.white);                       //背景顏色
-			ruleContent.setForeground (Color.BLACK);                       //字体颜色
+					"   �畾 : 頦拙撠勗�振�萱�撠梢�脩���  ");			
+			ruleContent.setFont (new Font ("SansSerif", Font.PLAIN, 18));  //摮�之撠�
+			ruleContent.setBackground (Color.white);                       //��憿
+			ruleContent.setForeground (Color.BLACK);                       //摮��
 			rulePanel.add(ruleContent);			
-			back = new JButton("返回");
+			back = new JButton("餈��");
 			back.setBounds(0, 0, 500, 31);
 			back.addActionListener(this);
 			rulePanel.add(back);			
@@ -277,8 +278,8 @@ public class DoubleSix extends JFrame implements ActionListener {
 		}
 		else if(e.getSource()==about) {
 			System.out.print("about");
-			JOptionPane.showMessageDialog(this, "製作: G04  鄭楷融、鄧煒庠、何冠勳、趙崇廣",
-					"關於", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "鋆賭��: G04  �璆瑁�����������誨",
+					"��", JOptionPane.INFORMATION_MESSAGE);
 			return;
 		}
 		else if(e.getSource()==backToMenu) {
@@ -304,12 +305,15 @@ public class DoubleSix extends JFrame implements ActionListener {
 			backgroundLB.setBounds(0, 0, 3000, 500);
 			startPanel.add(backgroundLB);
 		}		
-		else if(e.getSource()==btn[1]) {
-			new question().init();
-		}					
 			
-			
-		
+		for(int i=1; i<=ROW*COLUMN; i++) {
+			if(e.getSource()==btn[i]) {
+				System.out.print("backToMunu");
+				question = new Question();
+				question.init(i);
+				btn[i].setVisible(false);
+			}
+		}
 	
 	
 	

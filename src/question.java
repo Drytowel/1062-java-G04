@@ -36,7 +36,7 @@ public class Question extends JFrame implements ActionListener {
 //		vertical.add(q3);
 //		vertical.add(Box.createVerticalGlue());
 //		vertical.add(q4);
-		if(n==0) {
+		if(n==1) {
 			qf.setBounds(30, 30, 500, 300);
 			
 			qf.setLayout(new BorderLayout(0, 20));
