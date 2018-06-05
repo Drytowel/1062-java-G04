@@ -20,6 +20,7 @@ import java.awt.Dimension;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -38,11 +39,11 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private JButton about;
 	private JButton backToMenu;
 	
-	private JButton button[][];
-	private Question question;
 	
 	private final static int ROW = 10; //橫向10個格子
 	private final static int COLUMN = 5; //縱向5個格子
+	
+	private JButton btn[];
 	/**
 	 * Launch the application.
 	 */
@@ -124,23 +125,31 @@ public class DoubleSix extends JFrame implements ActionListener {
 			actionPanel.setBorder(border);
 			actionPanel.setPreferredSize(new Dimension(520, 380));
 			
-			JPanel contentPanel = new JPanel(new GridLayout(10, 5));  //設置遊玩區域
-//			contentPanel.setBackground(Color.blue);
-//			contentPanel.setBorder(border);
-//			contentPanel.setPreferredSize(new Dimension(300, 500));
-//			contentPanel.setLayout(gridLayout); //將遊戲區域設成gridLayout
-			button = new JButton[10][5];
-			for(int i=0; i<ROW; i++) {
-				for(int j=0; j<COLUMN; j++) {
-					button[i][j] = new JButton(i+""+j);
-					button[i][j].addActionListener(this);
-					contentPanel.add(button[i][j]);
-				}
+			JLabel player = new JLabel("分數",JLabel.CENTER);
+			player.setFont (new Font ("SansSerif", Font.PLAIN, 40));
+			actionPanel.add(player);
+			
+			JPanel contentPanel = new JPanel();  //設置遊玩區域
+			contentPanel.setBackground(Color.blue);
+			contentPanel.setBorder(border);
+			contentPanel.setPreferredSize(new Dimension(300, 500));
+			contentPanel.setLayout(gridLayout); //將遊戲區域設成gridLayout
+			
+			btn = new JButton[51];
+			for(int i=1; i<=ROW*COLUMN; i++) {								
+				btn[i] = new JButton(""+i);
+				btn[i].addActionListener(this);	
+				contentPanel.add(btn[i]);
+									
+				
+				
 			}
-
+		
 			playPanel.add(toolBar, BorderLayout.NORTH);
 			playPanel.add(actionPanel, BorderLayout.EAST);
 			playPanel.add(contentPanel, BorderLayout.CENTER);
+			
+
 			
 //			JButton n1 = new JButton("1");
 //	        GridBagConstraints p1 = new GridBagConstraints();
@@ -204,6 +213,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 //	        p5.fill = GridBagConstraints.NONE;
 //	        p5.anchor = GridBagConstraints.NORTHEAST;
 //	        playPanel.add(n5, p5);
+	        
 	        
 	        playPanel.setVisible(true);
 			
@@ -293,17 +303,21 @@ public class DoubleSix extends JFrame implements ActionListener {
 			backgroundLB.setIcon(new ImageIcon(getClass().getResource( "wood.png" ) ));			
 			backgroundLB.setBounds(0, 0, 3000, 500);
 			startPanel.add(backgroundLB);
-		}
+		}		
+		else if(e.getSource()==btn[1]) {
+			new question().init();
+		}					
+			
+			
 		
-		for(int i=0; i<ROW; i++) {
-			for(int j=0; j<COLUMN; j++) {
-				if(e.getSource()==button[i][j]) {
-					System.out.println("button");
-					question = new Question();
-					question.init(i*10+j);
-					button[i][j].setVisible(false);
-				}
-			}
-		}
+	
+	
+	
+	
+	
+	
+	
 	}
+
+	
 }
