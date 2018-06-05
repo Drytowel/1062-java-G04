@@ -39,7 +39,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private JButton backToMenu;
 	
 	private JButton button[][];
-	private question question;
+	private Question question;
 	
 	private final static int ROW = 10; //橫向10個格子
 	private final static int COLUMN = 5; //縱向5個格子
@@ -120,7 +120,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 			toolBar.add(backToMenu); //回到主畫面按鈕
 			
 			JPanel actionPanel = new JPanel();  //設置操作區域
-			actionPanel.setBackground(Color.gray);
+			actionPanel.setBackground(Color.yellow);
 			actionPanel.setBorder(border);
 			actionPanel.setPreferredSize(new Dimension(520, 380));
 			
@@ -130,19 +130,80 @@ public class DoubleSix extends JFrame implements ActionListener {
 //			contentPanel.setPreferredSize(new Dimension(300, 500));
 //			contentPanel.setLayout(gridLayout); //將遊戲區域設成gridLayout
 			button = new JButton[10][5];
-			int count = 1;
 			for(int i=0; i<ROW; i++) {
 				for(int j=0; j<COLUMN; j++) {
-					button[i][j] = new JButton("" + count);
+					button[i][j] = new JButton(i+""+j);
 					button[i][j].addActionListener(this);
 					contentPanel.add(button[i][j]);
-					count++;
 				}
 			}
 
 			playPanel.add(toolBar, BorderLayout.NORTH);
 			playPanel.add(actionPanel, BorderLayout.EAST);
 			playPanel.add(contentPanel, BorderLayout.CENTER);
+			
+//			JButton n1 = new JButton("1");
+//	        GridBagConstraints p1 = new GridBagConstraints();
+//	        p1.gridx = 0;
+//	        p1.gridy = 0;
+//	        p1.gridwidth = 1;
+//	        p1.gridheight = 1;
+//	        p1.weightx = 0;
+//	        p1.weighty = 0;
+//	        p1.fill = GridBagConstraints.BOTH;
+//	        p1.anchor = GridBagConstraints.NORTHEAST;
+//	        playPanel.add(n1, p1);
+//	        
+//	        
+//	        
+//	        JButton n2 = new JButton("2");
+//	        GridBagConstraints p2 = new GridBagConstraints();
+//	        p2.gridx = 1;
+//	        p2.gridy = 0;
+//	        p2.gridwidth = 1;
+//	        p2.gridheight = 1;
+//	        p2.weightx = 0;
+//	        p2.weighty = 0;
+//	        p2.fill = GridBagConstraints.NONE;
+//	        p2.anchor = GridBagConstraints.NORTHEAST;	        
+//	        playPanel.add(n2, p2);
+//	        
+//	        JButton n3 = new JButton("3");	        
+//	        GridBagConstraints p3 = new GridBagConstraints();
+//	        p3.gridx = 2;
+//	        p3.gridy = 0;
+//	        p3.gridwidth = 1;
+//	        p3.gridheight = 1;
+//	        p3.weightx = 0;
+//	        p3.weighty = 0;
+//	        p3.fill = GridBagConstraints.NONE;
+//	        p3.anchor = GridBagConstraints.NORTHEAST;
+//	        playPanel.add(n3, p3);
+//	  
+//	        JButton n4 = new JButton("4");	        
+//	        GridBagConstraints p4 = new GridBagConstraints();
+//	        p4.gridx = 3;
+//	        p4.gridy = 0;
+//	        p4.gridwidth = 1;
+//	        p4.gridheight = 1;
+//	        p4.weightx = 0;
+//	        p4.weighty = 0;
+//	        p4.fill = GridBagConstraints.NONE;
+//	        p4.anchor = GridBagConstraints.NORTHEAST;
+//	        playPanel.add(n4, p4);
+//			
+//	        
+//	        JButton n5 = new JButton("5");	        
+//	        GridBagConstraints p5 = new GridBagConstraints();
+//	        p5.gridx = 43;
+//	        p5.gridy = 0;
+//	        p5.gridwidth = 1;
+//	        p5.gridheight = 1;
+//	        p5.weightx = 0;
+//	        p5.weighty = 0;
+//	        p5.fill = GridBagConstraints.NONE;
+//	        p5.anchor = GridBagConstraints.NORTHEAST;
+//	        playPanel.add(n5, p5);
 	        
 	        playPanel.setVisible(true);
 			
@@ -237,7 +298,10 @@ public class DoubleSix extends JFrame implements ActionListener {
 		for(int i=0; i<ROW; i++) {
 			for(int j=0; j<COLUMN; j++) {
 				if(e.getSource()==button[i][j]) {
-					System.out.print("button");
+					System.out.println("button");
+					question = new Question();
+					question.init(i*10+j);
+					button[i][j].setVisible(false);
 				}
 			}
 		}
