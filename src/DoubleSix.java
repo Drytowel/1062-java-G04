@@ -38,6 +38,9 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private JButton about;
 	private JButton backToMenu;
 	
+	private JButton button[][];
+	private question question;
+	
 	private final static int ROW = 10; //橫向10個格子
 	private final static int COLUMN = 5; //縱向5個格子
 	/**
@@ -121,21 +124,23 @@ public class DoubleSix extends JFrame implements ActionListener {
 			actionPanel.setBorder(border);
 			actionPanel.setPreferredSize(new Dimension(520, 380));
 			
-			JPanel contentPanel = new JPanel();  //設置遊玩區域
-			contentPanel.setBackground(Color.blue);
-			contentPanel.setBorder(border);
-			contentPanel.setPreferredSize(new Dimension(300, 500));
-			contentPanel.setLayout(gridLayout); //將遊戲區域設成gridLayout
-			for(int i=0; i<ROW*COLUMN; i++) {
-				JButton button = new JButton(""+i);
-				contentPanel.add(button);
+			JPanel contentPanel = new JPanel(new GridLayout(10, 5));  //設置遊玩區域
+//			contentPanel.setBackground(Color.blue);
+//			contentPanel.setBorder(border);
+//			contentPanel.setPreferredSize(new Dimension(300, 500));
+//			contentPanel.setLayout(gridLayout); //將遊戲區域設成gridLayout
+			button = new JButton[10][5];
+			for(int i=0; i<ROW; i++) {
+				for(int j=0; j<COLUMN; j++) {
+					button[i][j] = new JButton(i+""+j);
+					button[i][j].addActionListener(this);
+					contentPanel.add(button[i][j]);
+				}
 			}
-		
+
 			playPanel.add(toolBar, BorderLayout.NORTH);
 			playPanel.add(actionPanel, BorderLayout.EAST);
 			playPanel.add(contentPanel, BorderLayout.CENTER);
-			
-
 			
 //			JButton n1 = new JButton("1");
 //	        GridBagConstraints p1 = new GridBagConstraints();
@@ -199,7 +204,6 @@ public class DoubleSix extends JFrame implements ActionListener {
 //	        p5.fill = GridBagConstraints.NONE;
 //	        p5.anchor = GridBagConstraints.NORTHEAST;
 //	        playPanel.add(n5, p5);
-	        
 	        
 	        playPanel.setVisible(true);
 			
@@ -291,6 +295,12 @@ public class DoubleSix extends JFrame implements ActionListener {
 			startPanel.add(backgroundLB);
 		}
 		
-		
+		for(int i=0; i<ROW; i++) {
+			for(int j=0; j<COLUMN; j++) {
+				if(e.getSource()==button[i][j]) {
+					System.out.print("button");
+				}
+			}
+		}
 	}
 }
