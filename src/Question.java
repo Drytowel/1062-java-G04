@@ -26,16 +26,7 @@ public class Question extends JFrame implements ActionListener {
 	private JButton q4 = new JButton("老鼠");
 	
 	public void init(int n) {
-//		qf.setBounds(30, 30, 500, 300);
-		
-//		vertical.add(Box.createVerticalStrut(10));
-//		vertical.add(q1);
-//		vertical.add(Box.createVerticalStrut(10));
-//		vertical.add(q2);
-//		vertical.add(Box.createVerticalStrut(10));
-//		vertical.add(q3);
-//		vertical.add(Box.createVerticalGlue());
-//		vertical.add(q4);
+
 		if(n==1) {
 			qf.setBounds(30, 30, 500, 300);
 			
@@ -60,29 +51,10 @@ public class Question extends JFrame implements ActionListener {
 			
 			qf.add(topp, BorderLayout.NORTH);
 			qf.add(botp);
-//			qf.add(vertical, BorderLayout.CENTER);
-//			qf.pack();
+
 			qf.setVisible(true);
 		}
-//		qf.setLayout(new BorderLayout(0, 20));
-//		
-//		botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
-//		
-//		JTextArea text = new JTextArea("問題: 哆啦A夢最喜愛的食物是？ ");
-//		text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
-//		
-//		topp.add(text);
-//	
-//		botp.add(q1);
-//		botp.add(q2);
-//		botp.add(q3);
-//		botp.add(q4);
-//		
-//		qf.add(topp, BorderLayout.NORTH);
-//		qf.add(botp);
-////		qf.add(vertical, BorderLayout.CENTER);
-////		qf.pack();
-//		qf.setVisible(true);
+
 		
 	}
 
@@ -94,10 +66,5 @@ public class Question extends JFrame implements ActionListener {
 		}
 		
 	}
-    
-//    public static void main(String[] args) {
-//		
-//		new question().init();
-//		
-//	}
+
 }
