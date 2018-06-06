@@ -49,7 +49,6 @@ public class DoubleSix extends JFrame implements ActionListener {
 	Thread gameThread;
 	private int time=59;
 	private JTextField countdownTime;
-	private JPanel timePanel;
 	
 	/**
 	 * Launch the application.
