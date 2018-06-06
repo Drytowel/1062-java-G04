@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -39,12 +40,17 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private JButton about;
 	private JButton backToMenu;
 	
-	
 	private final static int ROW = 10;  //橫向10個格子
 	private final static int COLUMN = 5; //縱向5個格子
 	
 	private JButton btn[];
 	private Question question;
+	
+	Thread gameThread;
+	private int time=59;
+	private JTextField countdownTime;
+	private JPanel timePanel;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -146,18 +152,29 @@ public class DoubleSix extends JFrame implements ActionListener {
 			for(int i=1; i<=ROW*COLUMN; i++) {								
 				btn[i] = new JButton(""+i);
 				btn[i].addActionListener(this);	
-				contentPanel.add(btn[i]);
-									
-				
-				
+				contentPanel.add(btn[i]);				
 			}
-		
-			playPanel.add(toolBar, BorderLayout.NORTH);
+            
+			countdownTime = new JTextField("                                 "); //設置倒數計時
+			gameThread = new Thread() {
+		        public void run() {
+			        for(int j=time; j>=0; j--) {
+			            try {
+				            Thread.sleep(1000);
+				        } catch (InterruptedException ex) {}
+			            countdownTime.setText("剩餘時間: "+j);
+			            countdownTime.setFont(new Font("楷體",Font.BOLD|Font.ITALIC,16)); 
+			        } 
+		         }
+		    };gameThread.start();
+		    toolBar.add(countdownTime);
+	          
+	        playPanel.add(toolBar, BorderLayout.NORTH);
 			playPanel.add(actionPanel, BorderLayout.EAST);
-			playPanel.add(contentPanel, BorderLayout.CENTER);
-		
-	        
-	        playPanel.setVisible(true);
+		    playPanel.add(contentPanel, BorderLayout.CENTER);
+			
+		        
+		      playPanel.setVisible(true);
 			
 		}else if(e.getSource()==rule) {
 			System.out.println("rule");					
@@ -254,7 +271,6 @@ public class DoubleSix extends JFrame implements ActionListener {
 				btn[i].setVisible(false);
 			}
 		}
-	
 	}
 
 	
