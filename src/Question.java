@@ -732,6 +732,31 @@ public class Question extends JFrame implements ActionListener {
 
 		
 	}
+	
+	public void chinese(int i) {
+		// 1,6,11,16,21,26,31,36
+		
+	}
+	
+	public void math(int i) {
+		// 2,7,12,17,22,27,32,37
+		
+	}
+	
+	public void history(int i) {
+		// 3,8,13,18,23,28,33,38
+		
+	}
+
+	public void science(int i) {
+		// 4,9,14,19,24,29,34,39
+		
+	}
+
+	public void physicalEducation(int i) {
+		// 5,10,15,20,25,30,35,40
+		
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

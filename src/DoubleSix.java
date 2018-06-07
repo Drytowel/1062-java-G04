@@ -40,8 +40,8 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private JButton about;
 	private JButton backToMenu;
 	
-	private final static int ROW = 10;  //橫向10個格子
-	private final static int COLUMN = 5; //縱向5個格子
+	private final static int ROW = 10;
+	private final static int COLUMN = 4;
 	
 	private JButton btn[];
 	private Question question;
@@ -125,7 +125,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 
 			
 			JPanel toolBar = new JPanel();   //設置工具列
-			toolBar.setBackground(Color.white);
+			toolBar.setBackground(Color.GRAY);
 			toolBar.setBorder(border); //設置邊框
 			toolBar.setPreferredSize(new Dimension(1000, 48));
 			
@@ -142,10 +142,26 @@ public class DoubleSix extends JFrame implements ActionListener {
 			actionPanel.add(score);
 			
 			JPanel contentPanel = new JPanel();  //設置遊玩區域
-			contentPanel.setBackground(Color.blue);
+			contentPanel.setBackground(Color.PINK);
 			contentPanel.setBorder(border);
 			contentPanel.setPreferredSize(new Dimension(300, 500));
 			contentPanel.setLayout(gridLayout); //將遊戲區域設成gridLayout
+			
+			JLabel chinese = new JLabel("國文",JLabel.CENTER);        
+			chinese.setFont (new Font ("SansSerif", Font.PLAIN, 30));
+			contentPanel.add(chinese);
+			JLabel math = new JLabel("數學",JLabel.CENTER);     
+			math.setFont (new Font ("SansSerif", Font.PLAIN, 30));
+			contentPanel.add(math);
+			JLabel history = new JLabel("歷史",JLabel.CENTER);      
+			history.setFont (new Font ("SansSerif", Font.PLAIN, 30));
+			contentPanel.add(history);
+			JLabel science = new JLabel("自然",JLabel.CENTER);    
+			science.setFont (new Font ("SansSerif", Font.PLAIN, 30));
+			contentPanel.add(science);
+			JLabel physicalEducation = new JLabel("體育",JLabel.CENTER);      
+			physicalEducation.setFont (new Font ("SansSerif", Font.PLAIN, 30));
+			contentPanel.add(physicalEducation);
 			
 			btn = new JButton[51];
 			for(int i=1; i<=ROW*COLUMN; i++) {								
@@ -153,27 +169,28 @@ public class DoubleSix extends JFrame implements ActionListener {
 				btn[i].addActionListener(this);	
 				contentPanel.add(btn[i]);				
 			}
-            
+
 			countdownTime = new JTextField("                                 "); //設置倒數計時
 			gameThread = new Thread() {
 		        public void run() {
-			        for(int j=time; j>=0; j--) {
-			            try {
-				            Thread.sleep(1000);
-				        } catch (InterruptedException ex) {}
-			            countdownTime.setText("剩餘時間: "+j);
-			            countdownTime.setFont(new Font("楷體",Font.BOLD|Font.ITALIC,16)); 
-			        } 
+		        		for(int j=time; j>=0; j--) {
+			            	try {
+					            Thread.sleep(1000);
+					        } catch (InterruptedException ex) {}			            	
+		            		countdownTime.setText("剩餘時間: "+j);
+		            		countdownTime.setBackground(Color.green);
+				            countdownTime.setFont(new Font("楷體",Font.BOLD|Font.ITALIC,16));	
+			            }
 		         }
 		    };gameThread.start();
 		    toolBar.add(countdownTime);
-	          
+	        
 	        playPanel.add(toolBar, BorderLayout.NORTH);
 			playPanel.add(actionPanel, BorderLayout.EAST);
 		    playPanel.add(contentPanel, BorderLayout.CENTER);
 			
 		        
-		      playPanel.setVisible(true);
+		    playPanel.setVisible(true);
 			
 		}else if(e.getSource()==rule) {
 			System.out.println("rule");					
@@ -236,6 +253,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 		}
 		else if(e.getSource()==backToMenu) {
 			System.out.println("backToMunu");
+			gameThread.stop();
 			setBounds(100, 100, 1300, 525);				
 			startPanel = new JPanel();
 			setContentPane(startPanel);		
@@ -267,11 +285,20 @@ public class DoubleSix extends JFrame implements ActionListener {
 			if(e.getSource()==btn[i]) {
 				System.out.println("button" + i);
 				question = new Question();
-				question.init(i);
 				btn[i].setVisible(false);
+				if(i%5==1) {
+					question.chinese(i);	
+				}else if(i%5==2) {
+					question.math(i);
+				}else if(i%5==3) {
+					question.history(i);	
+				}else if(i%5==4) {
+					question.science(i);	
+				}else if(i%5==0) {
+					question.physicalEducation(i);
+				}
 			}
 		}
 	}
-
 	
 }
