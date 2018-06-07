@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -11,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRootPane;
 import javax.swing.JTextArea;
 
 public class Question extends JFrame implements ActionListener {
@@ -25,13 +27,18 @@ public class Question extends JFrame implements ActionListener {
 	public void init(int choice) {
 		
 		if(choice==1) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			botp.setBackground(Color.white); //設置題目panel背景顏色
 			
 			JTextArea text = new JTextArea("問題: 哆啦A夢最喜愛的食物是？ ");
+			text.setEditable(false); //使題目無法被修改
+
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("銅鑼燒 ");
@@ -39,6 +46,7 @@ public class Question extends JFrame implements ActionListener {
 			q3 = new JButton("豬血糕");
 			q4 = new JButton("老鼠");
 			
+			topp.setBackground(Color.white); //設置按鈕panel背景顏色
 			topp.add(text);
 			
 			q1.addActionListener(this);
@@ -56,13 +64,16 @@ public class Question extends JFrame implements ActionListener {
 
 			qf.setVisible(true);
 		}else if(choice==2) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("問題:「鱟」在生物學上的分類？ ");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			//節肢動物門    腔腸動物門    軟體動物門    棘皮動物門
 			q1 = new JButton("節肢動物門 ");
@@ -88,13 +99,16 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==3) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 400, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("1+2+3......+10，請問總數是多少？ ");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("55");
@@ -120,13 +134,16 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==4) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("「臥薪嘗膽」這句成語出自於誰的故事？ ");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("句踐");
@@ -152,13 +169,16 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==5) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("(猜一字)酒中沒有水，簡直如見鬼 ");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("醜");
@@ -184,13 +204,16 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==6) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("子曰：吾十五而志於學，三十而立，四十而「」...？ ");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("不惑");
@@ -216,13 +239,16 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==7) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("阿基米得在做什麼事情的時候，發現阿基米得原理？ ");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("洗澡");
@@ -248,13 +274,16 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==8) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("球類運動的術語中，洗溝是哪一種球的術語 ");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("保齡球");
@@ -280,13 +309,16 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==9) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("灰姑娘參加舞會，乘坐的馬車是什麼變成的 ");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("南瓜");
@@ -312,13 +344,16 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==10) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("牛頓發現地心引力時，是被什麼打到 ");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("蘋果");
@@ -344,13 +379,16 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==11) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("諸葛亮用空城計嚇退哪一位人物率領的軍隊 ");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("司馬懿");
@@ -376,13 +414,16 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==12) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("電腦記憶體的換算單位[1MB]，相當於多少[KB]？");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("1024");
@@ -408,13 +449,16 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==13) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("關公使用的兵器是什麼");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("青龍偃月刀");
@@ -440,13 +484,16 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==14) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("蜜蜂通常利用什麼方式向同伴傳遞食物方位和距離的訊息");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("飛舞");
@@ -472,13 +519,16 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==15) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("形容一人傳虛，萬人傳實的成語，是下面哪一個");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("三人成虎");
@@ -504,13 +554,16 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==16) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("台灣民俗活動搶孤，舉辦時間通常在哪個傳統節令前後?");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("中元節");
@@ -536,13 +589,16 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==17) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("破釜沉舟的釜，指的是什麼?");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("炊具");
@@ -568,13 +624,16 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==18) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("童話人魚公主中，公主為了能跟王子見面，用什麼跟巫婆換取雙腿?");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("聲音");
@@ -600,13 +659,16 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==19) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("金瓶梅的作者是?");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("笑笑生");
@@ -632,13 +694,16 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==20) {
-			qf.setBounds(30, 30, 500, 300);
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
 			qf.setLayout(new BorderLayout(0, 20));
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
 			JTextArea text = new JTextArea("台灣俗諺乞丐趕廟公的意思是?");
+			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
 			q1 = new JButton("反客為主");
