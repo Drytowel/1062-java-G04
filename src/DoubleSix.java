@@ -188,7 +188,8 @@ public class DoubleSix extends JFrame implements ActionListener {
  					"\r\n" + 
  					"規則  : 答對一題+10分，每答錯一個選項-2分\r\n" + 
  					"\r\n" + 
- 					"題目數 : 共50題  \r\n");			
+ 					"題目數 : 共50題  \r\n");	
+			ruleContent.setEditable(false); //使規則無法被更改
 			ruleContent.setFont (new Font ("SansSerif", Font.PLAIN, 30));  //字體大小
 			ruleContent.setBackground (Color.white);                       //背景顏色
 			ruleContent.setForeground (Color.BLACK);                       //字体颜色
