@@ -271,6 +271,41 @@ public class Question extends JFrame implements ActionListener {
 
 			qf.setVisible(true);
 			
+		}else if(choice==36) {
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("入木三分這句成語是來自於誰的故事？ ");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("王羲之");
+			q2 = new JButton("張旭");
+			q3 = new JButton("陸游");
+			q4 = new JButton("郭璞");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q4);
+			botp.add(q3);
+			botp.add(q2);
+			botp.add(q1);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
 		}
 	}
 	
@@ -422,6 +457,181 @@ public class Question extends JFrame implements ActionListener {
 
 			qf.setVisible(true);
 			
+		}else if(choice==18) {
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("鄭經治台時，改國號為什麼國？");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("東寧");
+			q2 = new JButton("鄭經");
+			q3 = new JButton("西寧");
+			q4 = new JButton("高砂");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q4);
+			botp.add(q2);
+			botp.add(q1);
+			botp.add(q3);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==23) {
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("鄭經治台時，改國號為什麼國？");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("李耳");
+			q2 = new JButton("李鼻");
+			q3 = new JButton("李斯");
+			q4 = new JButton("李威");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q4);
+			botp.add(q2);
+			botp.add(q1);
+			botp.add(q3);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==28) {
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("十三行文化遺址在台北縣哪裡發現？");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("八里");
+			q2 = new JButton("陽明山");
+			q3 = new JButton("淡水");
+			q4 = new JButton("五股");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q4);
+			botp.add(q2);
+			botp.add(q1);
+			botp.add(q3);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==33) {
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("二次大戰期間的諾曼第登陸，發生在哪一個國家？  ");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("法國");
+			q2 = new JButton("西班牙");
+			q3 = new JButton("美國");
+			q4 = new JButton("荷蘭");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q2);
+			botp.add(q3);
+			botp.add(q1);
+			botp.add(q4);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==38) {
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("何者屬於台灣原住民的節慶活動？  ");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("豐年祭");
+			q2 = new JButton("載香包");
+			q3 = new JButton("放水燈");
+			q4 = new JButton(" 跳童乩 ");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q1);
+			botp.add(q3);
+			botp.add(q4);
+			botp.add(q2);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
 		}
 	}
 
@@ -567,6 +777,146 @@ public class Question extends JFrame implements ActionListener {
 
 			qf.setVisible(true);
 			
+		}else if(choice==24) {
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("水溫降到攝氏幾度以下會結冰？");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("0");
+			q2 = new JButton("20");
+			q3 = new JButton("10");
+			q4 = new JButton("30");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q2);
+			botp.add(q4);
+			botp.add(q3);
+			botp.add(q1);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==29) {
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("少量白雲母，最可能之火成岩種類為何？");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("花崗岩");
+			q2 = new JButton("橄欖岩");
+			q3 = new JButton("輝長岩");
+			q4 = new JButton("玄武岩");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q2);
+			botp.add(q4);
+			botp.add(q3);
+			botp.add(q1);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==34) {
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("臭氧層的臭氧減少的主因是下列何種化合物？");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("氟氯碳化物");
+			q2 = new JButton("氯氧化合物");
+			q3 = new JButton("二氧化氮");
+			q4 = new JButton("二氧化碳");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q2);
+			botp.add(q3);
+			botp.add(q1);
+			botp.add(q4);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==39) {
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("豬籠草和毛氈苔主要藉由捕食昆蟲以獲得該地區缺乏的何種營養素？ ");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("氮");
+			q2 = new JButton("鐵");
+			q3 = new JButton("碳");
+			q4 = new JButton("鉀");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q3);
+			botp.add(q2);
+			botp.add(q1);
+			botp.add(q4);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
 		}
 		
 	}
@@ -602,6 +952,41 @@ public class Question extends JFrame implements ActionListener {
 			botp.add(q4);
 			botp.add(q2);
 			botp.add(q3);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==10) {
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("鐵人三項比賽中，自行車項目的距離為幾公里？");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("40");
+			q2 = new JButton("20");
+			q3 = new JButton("10");
+			q4 = new JButton("30");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q1);
+			botp.add(q3);
+			botp.add(q2);
+			botp.add(q4);
 			
 			qf.add(topp, BorderLayout.NORTH);
 			qf.add(botp);
