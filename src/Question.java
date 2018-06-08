@@ -346,6 +346,251 @@ public class Question extends JFrame implements ActionListener {
 
 			qf.setVisible(true);
 			
+		}else if(choice==7) {
+			qf.setBounds(400, 300, 400, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("2+5x5=? ");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("27");
+			q2 = new JButton("15");
+			q3 = new JButton("10");
+			q4 = new JButton("5");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q1);
+			botp.add(q2);
+			botp.add(q3);
+			botp.add(q4);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==12) {
+			qf.setBounds(400, 300, 400, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("下列何者不是質數?");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("8");
+			q2 = new JButton("3");
+			q3 = new JButton("2");
+			q4 = new JButton("5");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q3);
+			botp.add(q2);
+			botp.add(q1);
+			botp.add(q4);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==17) {
+			qf.setBounds(400, 300, 400, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("64為2的幾次方?");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("6");
+			q2 = new JButton("5");
+			q3 = new JButton("4");
+			q4 = new JButton("7");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q4);
+			botp.add(q2);
+			botp.add(q1);
+			botp.add(q3);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==22) {
+			qf.setBounds(400, 300, 400, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("下列何者不是32的因數?");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("7");
+			q2 = new JButton("16");
+			q3 = new JButton("4");
+			q4 = new JButton("2");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q1);
+			botp.add(q2);
+			botp.add(q4);
+			botp.add(q3);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==27) {
+			qf.setBounds(400, 300, 400, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("下列何者不是11的倍數?");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("111");
+			q2 = new JButton("121");
+			q3 = new JButton("11");
+			q4 = new JButton("22");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q2);
+			botp.add(q4);
+			botp.add(q1);
+			botp.add(q3);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==32) {
+			qf.setBounds(400, 300, 400, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("請問16和14的最大公因數為?");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("2");
+			q2 = new JButton("8");
+			q3 = new JButton("7");
+			q4 = new JButton("16");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q2);
+			botp.add(q1);
+			botp.add(q4);
+			botp.add(q3);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==37) {
+			qf.setBounds(400, 300, 400, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("1+8x(4-3)=?");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("9");
+			q2 = new JButton("8");
+			q3 = new JButton("10");
+			q4 = new JButton("7");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q4);
+			botp.add(q1);
+			botp.add(q2);
+			botp.add(q3);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
 		}
 		
 	}
@@ -501,7 +746,7 @@ public class Question extends JFrame implements ActionListener {
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
-			JTextArea text = new JTextArea("鄭經治台時，改國號為什麼國？");
+			JTextArea text = new JTextArea("著有道德經，為道家始祖的是？");
 			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
@@ -987,6 +1232,216 @@ public class Question extends JFrame implements ActionListener {
 			botp.add(q3);
 			botp.add(q2);
 			botp.add(q4);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==15) {
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("在籃球比賽中，得分的最高限制為多久?");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("無此規定");
+			q2 = new JButton("100分");
+			q3 = new JButton("200分");
+			q4 = new JButton("150分");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q1);
+			botp.add(q3);
+			botp.add(q4);
+			botp.add(q2);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==20) {
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("籃球比賽時，罰球中籃算幾分?");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("1分");
+			q2 = new JButton("2分");
+			q3 = new JButton("3分");
+			q4 = new JButton("4分");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q1);
+			botp.add(q2);
+			botp.add(q3);
+			botp.add(q4);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==25) {
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("請問NBA籃球規則中規定個人犯規幾次即畢業離場？");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("六次");
+			q2 = new JButton("五次");
+			q3 = new JButton("四次");
+			q4 = new JButton("三次");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q2);
+			botp.add(q3);
+			botp.add(q1);
+			botp.add(q4);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==30) {
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("排球運動中，在發球或比賽中，球觸網而過，則");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("比賽繼續");
+			q2 = new JButton("對方得分");
+			q3 = new JButton("重行發球");
+			q4 = new JButton("犯規");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q1);
+			botp.add(q3);
+			botp.add(q2);
+			botp.add(q4);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==35) {
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("排球比賽獲發球權之一方應如何移動位置?");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("順時鐘輪轉一位");
+			q2 = new JButton("裁判決定");
+			q3 = new JButton("教練指示");
+			q4 = new JButton("逆時鐘");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q4);
+			botp.add(q3);
+			botp.add(q1);
+			botp.add(q2);
+			
+			qf.add(topp, BorderLayout.NORTH);
+			qf.add(botp);
+
+			qf.setVisible(true);
+			
+		}else if(choice==40) {
+			qf.setBounds(400, 300, 500, 300);
+			qf.setUndecorated(true); // 去掉視窗的裝飾
+			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
+			
+			qf.setLayout(new BorderLayout(0, 20));
+			
+			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
+			
+			JTextArea text = new JTextArea("排球比賽時下列哪一情況是不得用攔網方式將球擊回?");
+			text.setEditable(false); //使題目無法被修改
+			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
+			
+			q1 = new JButton("對方發球");
+			q2 = new JButton("對方吊小球");
+			q3 = new JButton("對方扣殺球");
+			q4 = new JButton("對方後排攻擊");
+			
+			topp.add(text);
+			
+			q1.addActionListener(this);
+			q2.addActionListener(this);
+			q3.addActionListener(this);
+			q4.addActionListener(this);
+			
+			botp.add(q4);
+			botp.add(q1);
+			botp.add(q2);
+			botp.add(q3);
 			
 			qf.add(topp, BorderLayout.NORTH);
 			qf.add(botp);
