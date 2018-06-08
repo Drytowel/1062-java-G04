@@ -10,6 +10,9 @@ import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
+
+import audioplayer.MP3;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -47,8 +50,12 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private Question question;
 	
 	Thread gameThread;
-	private int time=59;
+	private int time=109;
 	private JTextField countdownTime;
+	
+	Thread gameAudio;
+	MP3 mp3;
+    String filename;
 	
 	/**
 	 * Launch the application.
@@ -170,7 +177,8 @@ public class DoubleSix extends JFrame implements ActionListener {
 				contentPanel.add(btn[i]);				
 			}
 
-			countdownTime = new JTextField("                                 "); //設置倒數計時
+			
+			countdownTime = new JTextField("                                   "); //設置倒數計時
 			gameThread = new Thread() {
 		        public void run() {
 		        		for(int j=time; j>=0; j--) {
@@ -179,11 +187,27 @@ public class DoubleSix extends JFrame implements ActionListener {
 					        } catch (InterruptedException ex) {}			            	
 		            		countdownTime.setText("剩餘時間: "+j);
 		            		countdownTime.setBackground(Color.green);
-				            countdownTime.setFont(new Font("楷體",Font.BOLD|Font.ITALIC,16));	
+				            countdownTime.setFont(new Font("楷體",Font.BOLD|Font.ITALIC,16));
+				            
+				            if(j==0) {
+				            	mp3.stop();         //停止音樂
+				            }
 			            }
 		         }
-		    };gameThread.start();
+		    };
+		    gameThread.start();
 		    toolBar.add(countdownTime);
+		    
+		    //背景音樂
+		    gameAudio = new Thread() {    
+	    		public void run() {
+	    			filename = "resources/audio/background.mp3";
+	    			mp3 = new MP3(filename);
+	    			mp3.setLoop(true);
+	    			mp3.play();
+	    		}
+	    	};
+	    	gameAudio.start();
 	        
 	        playPanel.add(toolBar, BorderLayout.NORTH);
 			playPanel.add(actionPanel, BorderLayout.EAST);
@@ -253,7 +277,10 @@ public class DoubleSix extends JFrame implements ActionListener {
 		}
 		else if(e.getSource()==backToMenu) {
 			System.out.println("backToMunu");
-			gameThread.stop();
+			
+			gameThread.stop();  //停止倒數
+			mp3.stop();         //停止音樂
+			
 			setBounds(100, 100, 1300, 525);				
 			startPanel = new JPanel();
 			setContentPane(startPanel);		
