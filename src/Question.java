@@ -33,7 +33,7 @@ public class Question extends JFrame implements ActionListener {
 	public void chinese(int choice) {
 		// 1,6,11,16,21,26,31,36
 		if(choice==1) {
-			qf.setBounds(400, 300, 400, 300);
+			qf.setBounds(400, 300, 500, 300);
 			qf.setUndecorated(true); // 去掉視窗的裝飾
 			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
@@ -752,7 +752,7 @@ public class Question extends JFrame implements ActionListener {
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
-			JTextArea text = new JTextArea("鄭經治台時，改國號為什麼國？");
+			JTextArea text = new JTextArea("著有道德經，為道家始祖的是？");
 			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
@@ -1364,7 +1364,7 @@ public class Question extends JFrame implements ActionListener {
 			
 			q1 = new JButton("比賽繼續");
 			q2 = new JButton("對方得分");
-			q3 = new JButton("重新發球");
+			q3 = new JButton("重行發球");
 			q4 = new JButton("犯規");
 			
 			topp.add(text);
