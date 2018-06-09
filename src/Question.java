@@ -1466,14 +1466,13 @@ public class Question extends JFrame implements ActionListener {
 	    		public void run() {
 	    			filename = "resources/audio/currect.mp3";
 	    			mp3 = new MP3(filename);
-	    			mp3.setLoop(true);
+	    			mp3.setLoop(false);
 	    			mp3.play();
 	    		}
 	    	};
 	    	gameAudio.start();
 			
 			qf.setVisible(false);
-			mp3.stop();
 			
 		}else if(e.getSource()==q2 || e.getSource()==q3 || e.getSource()==q4) {
 			System.out.println("87µª¿ù¤F");
@@ -1482,7 +1481,7 @@ public class Question extends JFrame implements ActionListener {
 	    		public void run() {
 	    			filename = "resources/audio/wrong.mp3";
 	    			mp3 = new MP3(filename);
-	    			mp3.setLoop(true);
+	    			mp3.setLoop(false);
 	    			mp3.play();
 	    		}
 	    	};
@@ -1490,8 +1489,6 @@ public class Question extends JFrame implements ActionListener {
 			
 			JOptionPane.showMessageDialog(this, "§Aµª¿ù¤F87",
  					"¿ù»~!", JOptionPane.ERROR_MESSAGE);
-			
-			mp3.stop();
 	    	
 		}
 		

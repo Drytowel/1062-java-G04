@@ -5,7 +5,7 @@ public class DoubleSixTest extends DoubleSix{
 		DoubleSix dou = new DoubleSix();
 		dou.setSize(1300, 525);
 		dou.setResizable(false);
-		dou.setTitle("Âù¤»");
+		dou.setTitle("ª¾ÃÑ¤ý");
 		dou.setVisible(true);
 
 	}

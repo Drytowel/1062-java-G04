@@ -12,6 +12,7 @@ import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
 import audioplayer.MP3;
+import audioplayer.MP3_background;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -50,11 +51,11 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private Question question;
 	
 	Thread gameThread;
-	private int time=109;
+	private int time=10;
 	private JTextField countdownTime;
 	
 	Thread gameAudio;
-	MP3 mp3;
+	MP3_background mp3;
     String filename;
 	
 	/**
@@ -202,7 +203,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 		    gameAudio = new Thread() {    
 	    		public void run() {
 	    			filename = "resources/audio/background.mp3";
-	    			mp3 = new MP3(filename);
+	    			mp3 = new MP3_background(filename);
 	    			mp3.setLoop(true);
 	    			mp3.play();
 	    		}
