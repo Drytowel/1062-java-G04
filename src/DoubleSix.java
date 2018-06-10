@@ -51,7 +51,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private Question question;
 	
 	private Thread gameThread;
-	private int time=10;
+	private int time=5;
 	private JTextField countdownTime;
 	
 	private Thread gameAudio;
@@ -59,6 +59,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private String filename;
 	
 	private static int sum = 0;
+	Gameover gameover;
 	
 	/**
 	 * Launch the application.
@@ -194,6 +195,10 @@ public class DoubleSix extends JFrame implements ActionListener {
 			            
 			            if(j==0) {
 			            	mp3.stop();         //停止音樂
+			            	gameover = new Gameover(); //跳到遊戲結束視窗
+			            	setContentPane(gameover);
+			            	gameover.setVisible(true);
+			            	
 			            }
 		            }
 		         }
@@ -332,6 +337,14 @@ public class DoubleSix extends JFrame implements ActionListener {
 		}
 	}
 	
+	public static int getSum() {
+		return sum;
+	}
+
+	public static void setSum(int sum) {
+		DoubleSix.sum = sum;
+	}
+
 	public void Calculation(int n) {
 		if(n==1) {
 			sum+=10;
