@@ -43,6 +43,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private JPanel playPanel;                
 	private JButton about;
 	private JButton backToMenu;
+	private JTextField scoreLable;
 	
 	private final static int ROW = 10;
 	private final static int COLUMN = 4;
@@ -51,17 +52,28 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private Question question;
 	
 	Thread gameThread;
-	private int time=10;
+	Thread scoreThread;
+	private int time=60;
 	private JTextField countdownTime;
 	
 	Thread gameAudio;
 	MP3_background mp3;
     String filename;
+    
+    private int score;
 	
 	/**
 	 * Launch the application.
 	 */
 	
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
 
 	/**
 	 * Create the frame.
@@ -148,6 +160,23 @@ public class DoubleSix extends JFrame implements ActionListener {
 			JLabel score = new JLabel("分數",JLabel.CENTER);        //設置分數在分數面板
 			score.setFont (new Font ("SansSerif", Font.PLAIN, 40));
 			actionPanel.add(score);
+			
+			scoreLable = new JTextField("           ");
+			scoreThread = new Thread() {
+		        public void run() {
+		        		for(int j=time; j>=0; j--) {
+			            	try {
+					            Thread.sleep(1000);
+					        } catch (InterruptedException ex) {}			            	
+			            	scoreLable.setText("   "+j);
+			            	scoreLable.setBackground(Color.white);
+			            	scoreLable.setFont(new Font("楷體",Font.BOLD|Font.ITALIC,16));
+			            }
+		         }
+		    };
+		    scoreThread.start();
+		    actionPanel.add(scoreLable);
+		    
 			
 			JPanel contentPanel = new JPanel();  //設置遊玩區域
 			contentPanel.setBackground(Color.PINK);
