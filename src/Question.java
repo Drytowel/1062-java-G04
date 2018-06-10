@@ -26,9 +26,11 @@ public class Question extends JFrame implements ActionListener {
 	private JButton q3;
 	private JButton q4;
 	
-	Thread gameAudio;
-	MP3 mp3;
-    String filename;
+	private Thread gameAudio;
+	private MP3 mp3;
+	private String filename;
+	
+	private DoubleSix doubleSix;
 	
 	public void chinese(int choice) {
 		// 1,6,11,16,21,26,31,36
@@ -64,7 +66,7 @@ public class Question extends JFrame implements ActionListener {
 			
 			qf.add(topp, BorderLayout.NORTH);
 			qf.add(botp);
-
+            
 			qf.setVisible(true);
 			
 		}else if(choice==6) {
@@ -1459,6 +1461,7 @@ public class Question extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		doubleSix = new DoubleSix();
 		if(e.getSource()==q1) {
 			System.out.println("q1");
 			
@@ -1473,7 +1476,9 @@ public class Question extends JFrame implements ActionListener {
 	    	gameAudio.start();
 			
 			qf.setVisible(false);
-			
+            
+			doubleSix.Calculation(1); //+10
+
 		}else if(e.getSource()==q2 || e.getSource()==q3 || e.getSource()==q4) {
 			System.out.println("87µª¿ù¤F");
 			
@@ -1486,10 +1491,12 @@ public class Question extends JFrame implements ActionListener {
 	    		}
 	    	};
 	    	gameAudio.start(); 
-			
+
 			JOptionPane.showMessageDialog(this, "§Aµª¿ù¤F87",
  					"¿ù»~!", JOptionPane.ERROR_MESSAGE);
-	    	
+            
+			doubleSix.Calculation(2); //-2
+			
 		}
 		
 	}

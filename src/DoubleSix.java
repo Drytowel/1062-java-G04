@@ -43,7 +43,6 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private JPanel playPanel;                
 	private JButton about;
 	private JButton backToMenu;
-	private JTextField scoreLable;
 	
 	private final static int ROW = 10;
 	private final static int COLUMN = 4;
@@ -51,29 +50,20 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private JButton btn[];
 	private Question question;
 	
-	Thread gameThread;
-	Thread scoreThread;
-	private int time=60;
+	private Thread gameThread;
+	private int time=10;
 	private JTextField countdownTime;
 	
-	Thread gameAudio;
-	MP3_background mp3;
-    String filename;
-    
-    private int score;
+	private Thread gameAudio;
+	private MP3_background mp3;
+	private String filename;
+	
+	private static int sum = 0;
 	
 	/**
 	 * Launch the application.
 	 */
 	
-
-	public int getScore() {
-		return score;
-	}
-
-	public void setScore(int score) {
-		this.score = score;
-	}
 
 	/**
 	 * Create the frame.
@@ -161,23 +151,6 @@ public class DoubleSix extends JFrame implements ActionListener {
 			score.setFont (new Font ("SansSerif", Font.PLAIN, 40));
 			actionPanel.add(score);
 			
-			scoreLable = new JTextField("           ");
-			scoreThread = new Thread() {
-		        public void run() {
-		        		for(int j=time; j>=0; j--) {
-			            	try {
-					            Thread.sleep(1000);
-					        } catch (InterruptedException ex) {}			            	
-			            	scoreLable.setText(" "+j +" ");
-			            	scoreLable.setBackground(Color.white);
-			            	scoreLable.setFont(new Font("楷體",Font.BOLD|Font.ITALIC,16));
-			            }
-		         }
-		    };
-		    scoreThread.start();
-		    actionPanel.add(scoreLable);
-		    
-			
 			JPanel contentPanel = new JPanel();  //設置遊玩區域
 			contentPanel.setBackground(Color.PINK);
 			contentPanel.setBorder(border);
@@ -211,18 +184,18 @@ public class DoubleSix extends JFrame implements ActionListener {
 			countdownTime = new JTextField("                                   "); //設置倒數計時
 			gameThread = new Thread() {
 		        public void run() {
-		        		for(int j=time; j>=0; j--) {
-			            	try {
-					            Thread.sleep(1000);
-					        } catch (InterruptedException ex) {}			            	
-		            		countdownTime.setText("剩餘時間: "+j);
-		            		countdownTime.setBackground(Color.green);
-				            countdownTime.setFont(new Font("楷體",Font.BOLD|Font.ITALIC,16));
-				            
-				            if(j==0) {
-				            	mp3.stop();         //停止音樂
-				            }
+	        		for(int j=time; j>=0; j--) {
+		            	try {
+				            Thread.sleep(1000);
+				        } catch (InterruptedException ex) {}			            	
+	            		countdownTime.setText("剩餘時間: "+j);
+	            		countdownTime.setBackground(Color.green);
+			            countdownTime.setFont(new Font("楷體",Font.BOLD|Font.ITALIC,16));
+			            
+			            if(j==0) {
+			            	mp3.stop();         //停止音樂
 			            }
+		            }
 		         }
 		    };
 		    gameThread.start();
@@ -259,7 +232,7 @@ public class DoubleSix extends JFrame implements ActionListener {
  					"\r\n" + 
  					"規則  : 答對一題+10分，每答錯一個選項-2分\r\n" + 
  					"\r\n" + 
- 					"題目數 : 共40題  \r\n");	
+ 					"題目數 : 共50題  \r\n");	
 			ruleContent.setEditable(false); //使規則無法被更改
 			ruleContent.setFont (new Font ("SansSerif", Font.PLAIN, 30));  //字體大小
 			ruleContent.setBackground (Color.white);                       //背景顏色
@@ -308,6 +281,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 		else if(e.getSource()==backToMenu) {
 			System.out.println("backToMunu");
 			
+			sum = 0;
 			gameThread.stop();  //停止倒數
 			mp3.stop();         //停止音樂
 			
@@ -356,6 +330,17 @@ public class DoubleSix extends JFrame implements ActionListener {
 				}
 			}
 		}
+	}
+	
+	public void Calculation(int n) {
+		if(n==1) {
+			sum+=10;
+			System.out.println(sum);
+		}else if(n==2){
+			sum -= 2;
+			System.out.println(sum);
+		}
+		
 	}
 	
 }
