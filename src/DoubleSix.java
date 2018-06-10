@@ -16,6 +16,10 @@ import audioplayer.MP3_background;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -51,7 +55,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private Question question;
 	
 	private Thread gameThread;
-	private int time=5;
+	private int time=10;
 	private JTextField countdownTime;
 	
 	private Thread gameAudio;
@@ -59,7 +63,6 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private String filename;
 	
 	private static int sum = 0;
-	Gameover gameover;
 	
 	/**
 	 * Launch the application.
@@ -195,10 +198,28 @@ public class DoubleSix extends JFrame implements ActionListener {
 			            
 			            if(j==0) {
 			            	mp3.stop();         //停止音樂
-			            	gameover = new Gameover(); //跳到遊戲結束視窗
-			            	setContentPane(gameover);
-			            	gameover.setVisible(true);
 			            	
+			            	//資料庫
+			            	try {
+			        			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			        		} catch (Exception ex) {
+			        			// handle the error
+			        		}
+
+			        		Connection conn = null;
+			        		try {
+			        			String input = JOptionPane.showInputDialog( "請輸入姓名" ); 
+			    				System.out.println(input);
+
+			        			conn = DriverManager.getConnection("jdbc:mysql://localhost/scoreboard?"
+			        					+ "user=root&password=0000&serverTimezone=UTC&useSSL=false");
+
+			        			Statement stmt = conn.createStatement();
+			        			
+			        			String sql = "INSERT INTO scoreboard VALUES ('"+input+"','"+sum+"')";
+			        			stmt.executeUpdate(sql);
+			        			
+			        		} catch (SQLException ex) {}
 			            }
 		            }
 		         }
@@ -286,6 +307,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 		else if(e.getSource()==backToMenu) {
 			System.out.println("backToMunu");
 			
+			time = 10;
 			sum = 0;
 			gameThread.stop();  //停止倒數
 			mp3.stop();         //停止音樂
@@ -337,14 +359,6 @@ public class DoubleSix extends JFrame implements ActionListener {
 		}
 	}
 	
-	public static int getSum() {
-		return sum;
-	}
-
-	public static void setSum(int sum) {
-		DoubleSix.sum = sum;
-	}
-
 	public void Calculation(int n) {
 		if(n==1) {
 			sum+=10;
