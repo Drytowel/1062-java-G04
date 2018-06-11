@@ -29,7 +29,7 @@ public class Gameover extends JPanel implements ActionListener{
 		topPanel.add(playAgain);
 		topPanel.add(backToMenu);
 		
-		input = JOptionPane.showInputDialog("請輸入姓名: ");
+		input = DoubleSix.getInput();
 		System.out.println(input);
 		
 		score = "     您的分數: " + DoubleSix.getSum();
@@ -50,6 +50,26 @@ public class Gameover extends JPanel implements ActionListener{
 	
 	
 	
+
+	public String getInput() {
+		return input;
+	}
+
+
+
+
+
+
+
+	public void setInput(String input) {
+		this.input = input;
+	}
+
+
+
+
+
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

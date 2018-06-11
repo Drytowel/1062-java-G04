@@ -63,6 +63,9 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private String filename;
 	
 	private static int sum = 0;
+	Gameover gameover;
+	private String input; //資料庫使用的input
+	private static String input2; //讓game使用的input，不確定會不會影響到資料庫，所以再設一個使用
 	
 	/**
 	 * Launch the application.
@@ -208,9 +211,9 @@ public class DoubleSix extends JFrame implements ActionListener {
 
 			        		Connection conn = null;
 			        		try {
-			        			String input = JOptionPane.showInputDialog( "請輸入姓名" ); 
+			        			input = JOptionPane.showInputDialog( "請輸入姓名" ); 
 			    				System.out.println(input);
-
+			    				input2 = input;
 			        			conn = DriverManager.getConnection("jdbc:mysql://localhost/scoreboard?"
 			        					+ "user=root&password=0000&serverTimezone=UTC&useSSL=false");
 
@@ -220,6 +223,11 @@ public class DoubleSix extends JFrame implements ActionListener {
 			        			stmt.executeUpdate(sql);
 			        			
 			        		} catch (SQLException ex) {}
+			        		
+			            	gameover = new Gameover(); //跳到遊戲結束視窗
+			            	gameover.setInput(input2);
+			            	setContentPane(gameover);
+			            	gameover.setVisible(true);
 			            }
 		            }
 		         }
@@ -368,6 +376,18 @@ public class DoubleSix extends JFrame implements ActionListener {
 			System.out.println(sum);
 		}
 		
+	}
+
+	public static int getSum() {
+		return sum;
+	}
+
+	public static void setSum(int sum) {
+		DoubleSix.sum = sum;
+	}
+	
+	public static String getInput() {
+		return input2;
 	}
 	
 }
