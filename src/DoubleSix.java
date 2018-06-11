@@ -1,7 +1,5 @@
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
@@ -9,11 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
 
-import audioplayer.MP3;
+
+
 import audioplayer.MP3_background;
-
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -23,15 +20,11 @@ import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Dimension;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 public class DoubleSix extends JFrame implements ActionListener {
@@ -51,33 +44,25 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private final static int ROW = 10;		//遊戲畫面下按鈕列數
 	private final static int COLUMN = 4;	//遊戲畫面下按鈕行數
 	
-	private JButton btn[]; //按鈕陣列
-	private Question question; //問題panel
+	private JButton btn[];                  //按鈕陣列
+	private Question question;              //問題panel
 	
 	private Thread gameThread;
-	private int time=60; //倒數時間
-	private JTextField countdownTime;  //倒數時間文字區域
+	private int time=60;                    //倒數時間
+	private JTextField countdownTime;       //倒數時間文字區域
 	
 	private Thread gameAudio;
 	private MP3_background mp3;
-	private String filename; //背景音樂路徑
+	private String filename;                //背景音樂路徑
 	
-	private static int sum = 0; //初始分數
-	Gameover gameover;    //遊戲結束panel
-	private String input; //資料庫使用的input
-	private static String input2; //讓game使用的input，不確定會不會影響到資料庫，所以再設一個使用
+	private static int sum = 0;             //初始分數
+	Gameover gameover;                      //遊戲結束panel
+	private String input;                   //資料庫使用的input
+	private static String input2;           //讓game使用的input，不確定會不會影響到資料庫，所以再設一個使用
 	
 	private Thread countThread;
-	private JTextField scoreCount;
+	private JTextField scoreCount;	
 	
-	/**
-	 * Launch the application.
-	 */
-	
-
-	/**
-	 * Create the frame.
-	 */
 	public DoubleSix() {
 		super();
 		
@@ -106,17 +91,8 @@ public class DoubleSix extends JFrame implements ActionListener {
 		backgroundLB = new JLabel("");
 		backgroundLB.setIcon(new ImageIcon(getClass().getResource( "wood.png" ) ));		
 		backgroundLB.setBounds(0, 0, 3000, 500);
-		startPanel.add(backgroundLB);
-		
-
-		
-//		GridBagLayout gb = new GridBagLayout();
-		
-		
-	}
-
-	//listening the actions
-	
+		startPanel.add(backgroundLB);		
+	}	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==gameStart) {
@@ -174,10 +150,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 		        }
 			};
 			countThread.start();
-		    actionPanel.add(scoreCount);
-
-			
-			
+		    actionPanel.add(scoreCount);			
 			
 			JPanel contentPanel = new JPanel();  //設置遊玩區域
 			contentPanel.setBackground(Color.PINK);
@@ -243,8 +216,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 			        			String sql = "INSERT INTO scoreboard VALUES ('"+input+"','"+sum+"')"; //存進資料庫
 			        			stmt.executeUpdate(sql);
 			        			
-			        		} catch (SQLException ex) {}
-			        		
+			        		} catch (SQLException ex) {}			        		
 			            	gameover = new Gameover(); //跳到遊戲結束視窗
 			            	gameover.setInput(input2);
 			            	setContentPane(gameover);
@@ -269,11 +241,8 @@ public class DoubleSix extends JFrame implements ActionListener {
 	        
 	        playPanel.add(toolBar, BorderLayout.NORTH);
 			playPanel.add(actionPanel, BorderLayout.EAST);
-		    playPanel.add(contentPanel, BorderLayout.CENTER);
-			
-		        
-		    playPanel.setVisible(true);
-			
+		    playPanel.add(contentPanel, BorderLayout.CENTER);		        
+		    playPanel.setVisible(true);			
 		}else if(e.getSource()==rule) {
 			System.out.println("rule");					
 			setBounds(100, 100, 1300, 524);
@@ -303,14 +272,13 @@ public class DoubleSix extends JFrame implements ActionListener {
 			startPanel = new JPanel();
 			setContentPane(startPanel);		
 			startPanel.setLayout(null);			
-			gameStart = new JButton("\u904A\u6232\u958B\u59CB");
-			gameStart.setBounds(350, 369, 500, 31);
-			gameStart.setBackground(Color.WHITE);
+			gameStart = new JButton("遊戲開始");
+			gameStart.setBounds(350, 369, 500, 31);	
 			gameStart.addActionListener(this);
 			
 			startPanel.add(gameStart);
 			
-			rule = new JButton("\u898F\u5247");
+			rule = new JButton("規則");
 			rule.setBounds(350, 312, 500, 31);
 			rule.addActionListener(this);
 			startPanel.add(rule);
@@ -323,9 +291,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 			backgroundLB = new JLabel("");
 			backgroundLB.setIcon(new ImageIcon(getClass().getResource( "wood.png" ) ));			
 			backgroundLB.setBounds(0, 0, 3000, 500);
-			startPanel.add(backgroundLB);
-
-			
+			startPanel.add(backgroundLB);		
 		}
 		else if(e.getSource()==about) {
 			System.out.print("about");
@@ -346,8 +312,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 			setContentPane(startPanel);		
 			startPanel.setLayout(null);			
 			gameStart = new JButton("\u904A\u6232\u958B\u59CB");
-			gameStart.setBounds(350, 369, 500, 31);
-			gameStart.setBackground(Color.WHITE);
+			gameStart.setBounds(350, 369, 500, 31);			
 			gameStart.addActionListener(this);
 			
 			startPanel.add(gameStart);
@@ -398,7 +363,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 		}
 		
 	}
-
+	
 	public static int getSum() {
 		return sum;
 	}
