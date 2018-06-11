@@ -48,7 +48,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private Question question;              //問題panel
 	
 	private Thread gameThread;
-	private int time=60;                    //倒數時間
+	private int time=3;                    //倒數時間
 	private JTextField countdownTime;       //倒數時間文字區域
 	
 	private Thread gameAudio;
@@ -208,7 +208,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 			        			input = JOptionPane.showInputDialog( "請輸入姓名" ); 
 			    				System.out.println(input);
 			    				input2 = input;
-			        			conn = DriverManager.getConnection("jdbc:mysql://localhost/scoreboard?"
+			        			conn = DriverManager.getConnection("jdbc:mysql://localhost/g04?"
 			        					+ "user=root&password=0000&serverTimezone=UTC&useSSL=false");
 
 			        			Statement stmt = conn.createStatement();

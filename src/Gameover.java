@@ -50,7 +50,7 @@ public class Gameover extends JPanel{
 		Connection conn = null;
 		try {
 			
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/scoreboard?"
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/g04?"
 					+ "user=root&password=0000&serverTimezone=UTC&useSSL=false");
 
 			Statement stmt = conn.createStatement();
@@ -69,9 +69,6 @@ public class Gameover extends JPanel{
 				
 			    for(int i=1; i<=sum; i++){
 
-
-					this.add(textPanel);
-			    	
 			        System.out.print(data.getColumnName(i)+":"+rs.getObject(i)+" \t");
 			    }
 			    System.out.println("");
