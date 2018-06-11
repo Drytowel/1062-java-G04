@@ -1,55 +1,113 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class Gameover extends JPanel implements ActionListener{
-	private JPanel topPanel;
+//	private JPanel topPanel;
 	private JButton playAgain;
 	private JButton backToMenu;
 	private String score;
 	private JLabel information;
 	private String input;
+	private JTextField scoreBoard;
+	private JPanel textPanel;
+	
+
 	
 	public Gameover() {
 		this.setBounds(0, 0, 1300, 525);
 		this.setLayout(new BorderLayout());
 		
-		topPanel = new JPanel();
+//		topPanel = new JPanel();
 		
-		playAgain = new JButton("¶b™±§@¶∏?");
-		backToMenu = new JButton("™¶^•Dµe≠±");
-		topPanel.add(playAgain);
-		topPanel.add(backToMenu);
+//		playAgain = new JButton("Âú®Áé©‰∏ÄÊ¨°?");
+//		backToMenu = new JButton("ËøîÂõû‰∏ªÁï´Èù¢");
+//		topPanel.add(playAgain);
+//		topPanel.add(backToMenu);
 		
-		input = DoubleSix.getInput();
-		System.out.println(input);
-		
-		score = "     ±z™∫§¿º∆: " + DoubleSix.getSum();
-		information = new JLabel();
-		information.setBackground(Color.white);
-		information.setFont(new Font ("SansSerif", Font.BOLD, 40));
-		information.setForeground(Color.BLUE);
-		information.setText("±z™∫©m¶W: "+ input + "\r\n" + score);
-		
-		this.add(information);
-		this.add(topPanel, BorderLayout.NORTH);
-		
+//		input = DoubleSix.getInput();
+//		System.out.println(input);
+//		
+//		score = "     ÊÇ®ÁöÑÂàÜÊï∏: " + DoubleSix.getSum();
+//		information = new JLabel();
+//		information.setBackground(Color.white);
+//		information.setFont(new Font ("SansSerif", Font.BOLD, 40));
+//		information.setForeground(Color.BLUE);
+//		information.setText("ÊÇ®ÁöÑÂßìÂêç: "+ input + "\r\n" + score);
+//		
+//		this.add(information);
+//		this.add(topPanel, BorderLayout.NORTH);
+        
+		//ÊäìË≥áÊñô
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+		} catch (Exception ex) {
+			// handle the error
+		}
 
+		Connection conn = null;
+		try {
+			
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/scoreboard?"
+					+ "user=root&password=0000&serverTimezone=UTC&useSSL=false");
+
+			Statement stmt = conn.createStatement();
+			
+			String sql = "SELECT * FROM scoreboard";
+
+			ResultSet rs = stmt.executeQuery(sql);
+			ResultSetMetaData data = rs.getMetaData();
+
+			int sum = data.getColumnCount();
+
+			while(rs.next()){
+				textPanel = new JPanel();
+				textPanel.setLayout(new GridBagLayout());
+				
+				
+			    for(int i=1; i<=sum; i++){
+//			    	textPanel = new JPanel();
+//			    	scoreBoard = new JTextField("                 ");
+//			    	scoreBoard.setText(data.getColumnName(i)+":"+rs.getObject(i)+"\t");
+//			    	scoreBoard.setFont(new Font ("SansSerif", Font.PLAIN, 20));
+//			    	textPanel.add(scoreBoard);
+//			    	this.add(textPanel);
+			    	
+			    	
+//			    	textPanel.setLayout(new GridBagLayout());
+//					JTextArea scoreBoard = new JTextArea(data.getColumnName(i+1)+":"+rs.getObject(i+1)+" \t");
+//					scoreBoard.setEditable(false); //‰ΩøË¶èÂâáÁÑ°Ê≥ïË¢´Êõ¥Êîπ
+//					scoreBoard.setFont (new Font ("SansSerif", Font.PLAIN, 30));  //Â≠óÈ´îÂ§ßÂ∞è
+//					scoreBoard.setBackground (Color.white);                       //ËÉåÊôØÈ°èËâ≤Óê¥Ôè∞
+//					scoreBoard.setForeground (Color.BLACK);                       //Â≠ó‰ΩìÈ¢úËâ≤
+//					textPanel.add(scoreBoard);
+
+					this.add(textPanel);
+			    	
+			        System.out.print(data.getColumnName(i)+":"+rs.getObject(i)+" \t");
+			    }
+			    System.out.println("");
+			}
+			
+		} catch (SQLException ex) {}
 	}
-		
-	
-	
-	
-	
-	
+
 
 	public String getInput() {
 		return input;
@@ -77,7 +135,7 @@ public class Gameover extends JPanel implements ActionListener{
 			
 		}
 		if(e.getSource()==backToMenu) {
-			
+
 		}
 	}
 	
