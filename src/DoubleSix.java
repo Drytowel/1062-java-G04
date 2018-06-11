@@ -37,33 +37,33 @@ import javax.swing.ImageIcon;
 public class DoubleSix extends JFrame implements ActionListener {
 
 	private JPanel startPanel;               //開始的Panel
-	private JButton gameStart;	
-	private JButton rule; 
-	private JLabel backgroundLB;
+	private JButton gameStart;				//遊戲開始按鈕
+	private JButton rule; 					//遊戲規則按鈕
+	private JLabel backgroundLB;			//主畫面背景
 	
-	private JPanel rulePanel;                 //rule的Panel
-	private JButton back;	
+	private JPanel rulePanel;                 //規則Panel
+	private JButton back;					  //規則下的返回按鈕
 	
-	private JPanel playPanel;                
-	private JButton about;
-	private JButton backToMenu;
+	private JPanel playPanel;                //遊戲畫面panel
+	private JButton about;					//遊戲畫面下'關於'按鈕
+	private JButton backToMenu;				//遊戲畫面下'返回主畫面'按鈕
 	
-	private final static int ROW = 10;
-	private final static int COLUMN = 4;
+	private final static int ROW = 10;		//遊戲畫面下按鈕列數
+	private final static int COLUMN = 4;	//遊戲畫面下按鈕行數
 	
-	private JButton btn[];
-	private Question question;
+	private JButton btn[]; //按鈕陣列
+	private Question question; //問題panel
 	
 	private Thread gameThread;
-	private int time=10;
-	private JTextField countdownTime;
+	private int time=10; //倒數時間
+	private JTextField countdownTime;  //倒數時間文字區域
 	
 	private Thread gameAudio;
 	private MP3_background mp3;
-	private String filename;
+	private String filename; //背景音樂路徑
 	
-	private static int sum = 0;
-	Gameover gameover;
+	private static int sum = 0; //初始分數
+	Gameover gameover;    //遊戲結束panel
 	private String input; //資料庫使用的input
 	private static String input2; //讓game使用的input，不確定會不會影響到資料庫，所以再設一個使用
 	
