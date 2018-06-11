@@ -67,6 +67,9 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private String input; //資料庫使用的input
 	private static String input2; //讓game使用的input，不確定會不會影響到資料庫，所以再設一個使用
 	
+	private Thread countThread;
+	private JTextField scoreCount;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -149,14 +152,32 @@ public class DoubleSix extends JFrame implements ActionListener {
 			toolBar.add(about); //將關於按鈕放入
 			toolBar.add(backToMenu); //回到主畫面按鈕
 			
-			JPanel actionPanel = new JPanel();  //設置操作區域
+			JPanel actionPanel = new JPanel();  //設置分數資訊區域
 			actionPanel.setBackground(Color.yellow);
 			actionPanel.setBorder(border);
 			actionPanel.setPreferredSize(new Dimension(520, 380));
 			
-			JLabel score = new JLabel("分數",JLabel.CENTER);        //設置分數在分數面板
+			JLabel score = new JLabel("分數: ",JLabel.CENTER);        //設置分數面板
 			score.setFont (new Font ("SansSerif", Font.PLAIN, 40));
 			actionPanel.add(score);
+			
+			scoreCount = new JTextField("                 ");  //新增分數文字
+			countThread = new Thread() {
+				public void run() {
+		        	while(true){
+		        		try {
+		        			Thread.sleep(100);
+		        		} catch (InterruptedException ex) {}				
+						scoreCount.setText(" " + sum + " ");
+		        		scoreCount.setFont(new Font ("SansSerif", Font.PLAIN, 20));
+		        	}
+		        }
+			};
+			countThread.start();
+		    actionPanel.add(scoreCount);
+
+			
+			
 			
 			JPanel contentPanel = new JPanel();  //設置遊玩區域
 			contentPanel.setBackground(Color.PINK);
