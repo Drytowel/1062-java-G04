@@ -55,7 +55,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private Question question; //問題panel
 	
 	private Thread gameThread;
-	private int time=10; //倒數時間
+	private int time=60; //倒數時間
 	private JTextField countdownTime;  //倒數時間文字區域
 	
 	private Thread gameAudio;
@@ -287,7 +287,7 @@ public class DoubleSix extends JFrame implements ActionListener {
  					"\r\n" + 
  					"規則  : 答對一題+10分，每答錯一個選項-2分\r\n" + 
  					"\r\n" + 
- 					"題目數 : 共50題  \r\n");	
+ 					"題目數 : 共40題  \r\n");	
 			ruleContent.setEditable(false); //使規則無法被更改
 			ruleContent.setFont (new Font ("SansSerif", Font.PLAIN, 30));  //字體大小
 			ruleContent.setBackground (Color.white);                       //背景顏色
