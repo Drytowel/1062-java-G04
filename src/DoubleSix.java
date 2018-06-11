@@ -48,7 +48,7 @@ public class DoubleSix extends JFrame implements ActionListener {
 	private Question question;              //問題panel
 	
 	private Thread gameThread;
-	private int time=3;                    //倒數時間
+	private int time=60;                    //倒數時間
 	private JTextField countdownTime;       //倒數時間文字區域
 	
 	private Thread gameAudio;
