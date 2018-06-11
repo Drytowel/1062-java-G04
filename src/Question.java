@@ -1031,7 +1031,7 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==24) {
-			qf.setBounds(400, 300, 500, 300);
+			qf.setBounds(400, 300, 400, 300);
 			qf.setUndecorated(true); // 去掉視窗的裝飾
 			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
@@ -1136,7 +1136,7 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==39) {
-			qf.setBounds(400, 300, 500, 300);
+			qf.setBounds(400, 300, 400, 300);
 			qf.setUndecorated(true); // 去掉視窗的裝飾
 			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
@@ -1144,7 +1144,7 @@ public class Question extends JFrame implements ActionListener {
 			
 			botp.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 15));
 			
-			JTextArea text = new JTextArea("豬籠草和毛氈苔主要藉由捕食昆蟲以獲得該地區缺乏的何種營養素？ ");
+			JTextArea text = new JTextArea("豬籠草和毛氈苔主要藉由捕食昆蟲\n以獲得該地區缺乏的何種營養素？ ");
 			text.setEditable(false); //使題目無法被修改
 			text.setFont (new Font ("SansSerif", Font.PLAIN, 18));
 			
@@ -1212,7 +1212,7 @@ public class Question extends JFrame implements ActionListener {
 			qf.setVisible(true);
 			
 		}else if(choice==10) {
-			qf.setBounds(400, 300, 500, 300);
+			qf.setBounds(400, 300, 400, 300);
 			qf.setUndecorated(true); // 去掉視窗的裝飾
 			qf.getRootPane().setWindowDecorationStyle(JRootPane.NONE); //不使用任何裝飾視窗風格
 			
